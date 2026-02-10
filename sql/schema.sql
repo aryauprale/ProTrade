@@ -5,7 +5,7 @@ CREATE TABLE users (
       email VARCHAR(50) UNIQUE NOT NULL,
       pass_word VARCHAR(50) NOT NULL,
       role_assign TEXT NOT NULL,
-      cash_balance REAL DEFAULT 0,
+      cash_balance REAL DEFAULT 0
 ) ;
 
 CREATE TABLE stocks (
