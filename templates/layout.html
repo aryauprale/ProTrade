@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ProTrade</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <nav class="bg-gray-900 text-white p-4 flex justify-between">
+        <div class="font-bold text-lg">Protrade</div>
+        <div class="space-x-4"> 
+            <a href="/">Home</a>
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow container mx-auto p-6">
+      {% block content %} {% endblock %}
+
+    </main>
+
+    <footer>
+       &copy; 2026 ProTrade
+    </footer>
+</body>
+</html>
