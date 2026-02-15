@@ -1,0 +1,1077 @@
+diff --git a/ProTrade.html b/ProTrade.html
+deleted file mode 100644
+index aaf8823..0000000
+--- a/ProTrade.html
++++ /dev/null
+@@ -1,104 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <link rel="stylesheet" href="style1.css">
+-    <script defer src="script.js"></script>       
+-    <title>ProTrade</title>
+-</head>
+-<body>
+-     <div class="heading">
+-        <h1>ProTrade the choice of smart invetors!<h1>
+-
+-        <p><br>Investors <br>who wish to invest in stock <br> market 
+-            should only  need to establish <br>a budget and 
+-            define their financial goals. <br>
+-            The rest of the task like assessing risk tolerance, <br>
+-            management evaluation, current industries trend, and <br>
+-            essential researches will be handled by us. The advanced <br>
+-            ProTrade application will monitor, analyze, and track <br>
+-            real-time market data. It also displays performance charts, <br>
+-            setting watchlists, providing news updates, and execute trade<br>
+-            to make investment more accessible directly even from mobile phone.</p>
+-             <br>
+-<h2>Tell us what you want to know</h2> <br>
+-Saving and budgeting <br> Saving for retirement <br>
+-Managing estate planning<br> Preparing for college<br>
+-
+-<h2>Let's help you take action<br></h2>
+-        <p>Choose the account type that best suits 
+-            your needs and start trading with ProTrade
+-          today</p>
+-
+-        <div class="container">
+-            <section class="about">
+-                <div class="about-image">
+-                    <img src="imag12.png">
+-                    </div>  
+-                    <div class="about-content">
+-                        <h2>Investmet accounts to choose from</h2>
+-                        <p>Different investment account types 
+-                            serve for different purposes. There 
+-                            are serveral investment goals including 
+-                            retiremet, education, healthcare, a 
+-                            child's future saving, or it could be 
+-                            something else. These accounts are tools
+-                             to help reach financial goals.</p>
+-                        <ul>
+-            <li><strong>Stocks:</strong> Invest in individual companies <br>
+-                and potentially earn dividends and capital gains.</li>
+-            <br>
+-
+-            <li><strong>Bonds:</strong> Lend money to governments or <br>
+-                corporations in exchange for regular interest payments.</li>
+-            <br>
+-
+-            <li><strong>Mutual Funds:</strong> Pool your money with other <br>
+-                investors to invest in a diversified portfolio <br>
+-                of stocks, bonds, or other assets.</li>
+-            <br>
+-
+-            <li><strong>Exchange-Traded Funds (ETFs):</strong> <br>
+-                Similar to mutual funds but traded on <br>
+-                stock exchanges, offering flexibility and <br>
+-                diversification.</li>
+-            <br>
+-
+-            <li><strong>Real Estate Investment Trusts (REITs):</strong> <br>
+-                Invest in real estate properties without <br>
+-                the hassle of direct ownership.</li>
+-            <br>
+-
+-            <li><strong>Cryptocurrencies:</strong> Explore the world of digital <br>
+-                currencies like Bitcoin and Ethereum <br>
+-                for potential high returns.</li>
+-            <br>
+-            </ul>
+-        
+-            <div>
+-             
+-            </section>
+-            <section class="about">
+-                <div class="about-image">
+-                    <img src="imag7.png">
+-                    </div>  
+-                    <div class="about-content">
+-                        <h2>Choose the account type that best suits your needs</h2>
+-                        <p>ProTrade offers a variety of account types to 
+-                            cater to different investment goals and 
+-                            preferences. Whether you're looking for 
+-                            a retirement account, an education savings account, 
+-                            or a general investment account, ProTrade has options
+-                             to suit your needs. Each account type comes with its 
+-                             own set of features and benefits, allowing you to
+-                              choose the one that aligns best with your financial
+-                               objectives.</p>
+-
+-                           <div button class="Back">
+-                <button class="Back"><a href="Home.html">Back</a></button>
+-            </div>      
+-            </section>
+-    </div>
+-</body>
+-</html>
+\ No newline at end of file
+diff --git a/app.py b/app.py
+index e69de29..92cddad 100644
+--- a/app.py
++++ b/app.py
+@@ -0,0 +1,39 @@
++from flask import Flask, render_template
++
++app = Flask(__name__)
++
++@app.route('/')
++def home():
++    return render_template('index.html')
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++if __name__ == '__main__':
++    app.run(debug=True)
+\ No newline at end of file
+diff --git a/frontend/style.css b/frontend/style.css
+deleted file mode 100644
+index a34c0d1..0000000
+--- a/frontend/style.css
++++ /dev/null
+@@ -1,492 +0,0 @@
+-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+-* {
+-    margin: 0;
+-    padding: 0;
+-    box-sizing: border-box;
+-    font-family: 'Poppins' sans-serif;
+-
+-}
+-
+-
+-
+-
+-body {
+-
+-    display: flex;
+-    justify-content: center;
+-    align-items: center;
+-    min-height: 100vh;
+-    background: #000;
+-    background: url(imag6.png)no-repeat;
+-    background-size: cover;
+-}
+-
+-
+-
+- section {
+-
+-    display: flex;
+-    justify-content: center;
+-    align-items: center;
+-    width: 100%;
+-    height: 100vh;
+-    background: url(imag47.png)no-repeat;
+-    background-size: cover;
+-    background-position: center;
+- }
+-
+- .logo{
+-    color: green;
+-    font-family: Arial;
+-    float: left;
+-    font-size: 35px;
+-    padding-left: 20px;
+-    padding-top: 10px;
+-
+-}
+-.main{
+-    width: 100%;
+-    background: linear-gradient(to top, rgba(0,0,0,0,.5)50%), url(imag6.png);
+-    background-position: center;
+-    background-size: cover;
+-    height: 109vh;
+-
+-}
+-
+-.navbar {
+-    width: 1200px;
+-    height: 75px;
+-    margin: auto;
+-
+-}
+-.icon{
+-    width: 200px;
+-    float: left;
+-    height: 70px;
+-
+-}
+-.menu {
+-   width: 400px; 
+-   float: left;
+-   height: 70px;
+-
+-}
+-ul {
+-    float: left;
+-    display: flex;
+-    justify-content: center;
+-    align-items: center;
+-}
+-
+-ul li{
+-    list-style: none;
+-    margin-left: 62px;
+-    margin-top: 27px;
+-    font-size: 14px;
+-
+-}
+-
+-ul li a{
+-   text-decoration: none; 
+-   color: black;
+-   font-family: Arial;
+-   font-weight: bold;
+-    transition: 0.4s ease-in-out;
+-
+-}
+-
+-ul li a:hover{
+-    color: rgba(41, 128, 0, 0.808);
+-
+-}
+-.Signin-btn{
+-    display: inline-block;
+-    text-decoration: none;
+-    padding: 14px 40px;
+-    color: #4caf50;
+-    font-size: 14px;
+-    border-radius: 30px;
+-    border-top-right-radius: 0;
+-}
+-
+-.btn{
+-     display: inline-block;
+-    text-decoration: none;
+-    padding: 14px 40px;
+-    color: #4caf50;
+-    font-size: 14px;
+-
+-}
+-.content{
+-    flex: 1;
+-    width: 1200px;
+-    height: auto;
+-    margin: auto;
+-    color: green;
+-    position: relative;
+-
+-}
+-.about-image{
+-    flex: 1;
+-    margin-right: 40px;
+-    overflow: hidden;
+-}
+-
+-.about-image{
+-    max-width: 100%;
+-    height: auto;
+-    display: block;
+-    transition: 0.5s ease;
+-    margin-left: 10px;
+-
+-}
+-.about-image:hover {
+-    transform: scale(1.2);
+-}
+-
+-.content .p{
+-    padding-left: 20px;
+-    padding-bottom: 25px;
+-    font-family: Arial;
+-    letter-spacing: 1.2px;
+-    line-height: 30px;
+-
+-}
+-
+-.content h1{
+-    font-family: 'Times New Roman';
+-    font-size: 30px;
+-    padding-left: 20px;
+-    margin-top: 9%;
+-    letter-spacing: 2px;
+-}
+-
+-.content .cn{
+-    width: 160px;
+-    height: 40px;
+-    background: lightgreen;
+-    border: none;
+-    margin-bottom: 10px;
+-    margin-left: 20px;
+-    font-size: 18px;
+-    border-radius: 10px;
+-    cursor: pointer;
+-    transition: .4s ease;
+-}
+-
+-.content .cn a{
+-    text-decoration: none;
+-    color: rgb(150, 127, 255);
+-    transition: .3s ease;
+-    
+-}
+-
+- .cn{
+-   
+-    display: inline-block;
+-    padding: 10px 20px;
+-    background-color:#4caf50 ;
+-    color: #fff;
+-    font-size: 13px;
+-    text-decoration: none;
+-    border-radius: 25px;
+-    margin-top: 15px;
+-    transition: 0.3s ease;
+-
+- }
+-.login-box {
+-    position: relative;
+-    width: 400px;
+-    height: 600px;
+-    background: rgb(0, 128, 64);
+-    border: 2px solid rgba(255,255,255, .5);
+-    border-radius: 20px;
+-    display: flex;
+-    justify-content: center;
+-    align-items: center;
+-
+-}
+-
+-h2 {
+-
+-    font-size: 2em;
+-    color: #fff;
+-    text-align: center;
+-}
+-
+-.input-box {
+-    position: relative;
+-    width: 300px;
+-    margin: 30px 0;
+-border-bottom: 2px solid #fff;
+-}
+-
+-.input-box label {
+-    position: absolute;
+-    top: 50%;
+-    left: 5px;
+-    transform: translateY(-50%);
+-    font-size: 1em;
+-    color: #fff;
+-    pointer-events: none;
+-    transition: .5s;
+-}
+-
+-.input-box input:focus~label,
+-.input-box input:valid~label {
+-    top: -5px;
+-
+-}
+-    
+-.input-box input {
+-    width: 100%;
+-    height: 50px;
+-    background: transparent;
+-    border: none;
+-    outline: none;
+-    font-size: 1em;
+-    color: #fff;
+-    padding: 0 35px 0 5px;
+-
+-}
+-
+-.remember-forget {
+-
+-    margin: -15px 0 15px;
+-    font-size: -9em;
+-    color: #fff;
+-    display: flex;
+-    justify-content: space-between;
+-}
+-
+-.remember-forget label input {
+-    margin-right: 3px;
+-
+-
+-}
+-
+-.remember-forget a {
+-    color: #fff;
+-    text-decoration: none;
+-}
+-
+-.remember-forget a:hover {
+-    text-decoration: underline;
+-
+-}
+-
+-button {
+-    width: 100%;
+-    height: 40px;
+-    background: #fff;
+-    border: none;
+-    outline: none;
+-    border-radius: 40px;
+-    cursor: pointer;
+-    font-size: 1em;
+-    color: #000;
+-    font-weight: 500;
+-
+-}
+-
+-.registr-link {
+-    font-size: -9em;
+-    color: #fff;
+-    text-align: center;
+-    margin: 25px 0 10px;
+-}
+-
+-.registr-link p a {
+-    color: #fff;
+-    text-decoration: none;
+-    font-weight: 600;
+-}
+-.registr-link p a:hover {
+-    text-decoration: underline;
+-
+-}
+-
+-@media (max-width: 360px) {
+-    .login-box {
+-        width: 100%;
+-        height: 100vh;
+-    }
+-}
+-.image {
+-    width: 300px;
+-
+-}
+-
+-.frontimage {
+-    margin-left: 200px;
+-    margin-top: 200px;
+-}
+-
+-.SignUp-box {
+-    position: relative;
+-    width: 400px;
+-    height: 600px;
+-    background: rgb(0, 128, 64);
+-    border: 2px solid rgba(255,255,255, .5);
+-    border-radius: 20px;
+-    display: flex;
+-    justify-content: center;
+-    align-items: center;
+-
+-}
+-
+-
+-h2 {
+-
+-    font-size: 2em;
+-    color: black;
+-    text-align: center;
+-}
+-
+-.input-box {
+-    position: relative;
+-    width: 300px;
+-    margin: 30px 0;
+-border-bottom: 2px solid white;
+-}
+-
+-.input-box label {
+-    position: absolute;
+-    top: 50%;
+-    left: 5px;
+-    transform: translateY(-50%);
+-    font-size: 1em;
+-    color: #fff;
+-    pointer-events: none;
+-    transition: .5s;
+-}
+-
+-.input-box input:focus~label,
+-.input-box input:valid~label {
+-    top: -5px;
+-
+-}
+-
+-
+-.input-box input {
+-    width: 100%;
+-    height: 50px;
+-    background: transparent;
+-    border: none;
+-    outline: none;
+-    font-size: 1em;
+-    color: #fff;
+-    padding: 0 35px 0 5px;
+-}
+-
+-
+-
+-@media (max-width: 360px) {
+-    .Next-box {
+-        width: 100%;
+-        height: 100vh;
+-    }
+-}
+-
+-* {
+-    margin: 0px;
+-    padding: 0px;
+-    box-sizing: border-box;
+-    font-family: 'Poppins' sans-serif;
+-}
+-
+-body{
+-    background-color: #f2f2f2;
+-}
+-.heading {
+-    width: 90%;
+-    display: flex;
+-    justify-content: center;
+-    align-items: center;
+-    flex-direction: column;
+-    text-align: center;
+-    margin:20px auto ;
+-}
+-    
+-.heading h1{
+-    font-size: 50px;
+-    color: #000;
+-    margin-bottom: 25px;
+-    position: relative;
+-}
+-
+-.heading h1::after{
+-    content:"";
+-    position: absolute;
+-    width: 100%;
+-    height: 4px;
+-    display: block;
+-    margin: 0 auto;
+-    background-color: #4caf50;
+-
+-}
+-
+-.heading p{
+-    font-size: 18px;
+-    color: #666;
+-    margin-bottom: 35px;
+-}
+- 
+-.container {
+-    width:90%;
+-    margin: 0 auto;
+-    padding: 10px 20px;
+-
+-}
+-.about {
+-    display: flex;
+-    justify-content: space-between;
+-    align-items: center;
+-    flex-wrap: wrap;
+-    
+-}
+-.about-image{
+-    width: 530px;
+-    position: absolute;
+-    bottom: 0;
+-    right: 10%;
+-}
+-.button .cn{
+-    display: inline-block;
+-    padding: 10px 20px;
+-    color: #4caf50;
+-    font-size: 19px;
+-    text-decoration: none;
+-    border-radius: 25px;
+-    margin-top: 15px;
+-    transition: 0.3s ease;
+-}
+-
+-
+-.Verifying-box{
+-    position: relative;
+-    width: 400px;
+-    height: 500px;
+-    background: rgb(0, 128, 64);
+-    border: 2px solid rgba(255,255,255, .5);
+-    border-radius: 20px;
+-    display: flex;
+-    justify-content: center;
+-    align-items: center;
+-}
+-
+-button {
+-    display: inline-block;
+-    padding: 10px 20px;
+-    color: #4caf50;
+-    font-size: 19px;
+-    text-decoration: none;
+-    border-radius: 25px;
+-    margin-top: 15px;
+-    transition: 0.3s ease;
+-}
+-
+-.content p{
+-    margin: 10px 0 30px;
+-    color: #333; 
+-}
+\ No newline at end of file
+diff --git a/style1.css b/style1.css
+deleted file mode 100644
+index 727aad3..0000000
+--- a/style1.css
++++ /dev/null
+@@ -1,219 +0,0 @@
+-* {
+- 
+-    margin: 0px;
+-    padding: 0px;
+-    box-sizing: border-box;
+-   font-family: 'Roboto', sans-serif; 
+-}
+-
+-body{
+-   
+-
+-   background-color: #f2f2f2;
+-}
+-.heading {
+-    width: 90%;
+-    display: flex;
+-    justify-content: center;
+-    align-items: center;
+-    flex-direction: column;
+-    text-align: center;
+-    margin:20px auto ;
+-}
+-    
+-.heading h1{
+-    font-size: 50px;
+-    color: #000;
+-    margin-bottom: 25px;
+-    position: relative;
+-}
+-
+-.heading h1::after{
+-    content:"";
+-    position: absolute;
+-    width: 100%;
+-    height: 4px;
+-    display: block;
+-    margin: 0 auto;
+-    background-color: #4caf50;
+-
+-}
+-
+-.heading p{
+-    font-size: 18px;
+-    color: #666;
+-    margin-bottom: 35px;
+-}
+- 
+-.container {
+-    width:90%;
+-    margin: 0 auto;
+-    padding: 10px 20px;
+-
+-}
+-.about {
+-    display: flex;
+-    justify-content: space-between;
+-    align-items: center;
+-    flex-wrap: wrap;
+-    
+-}
+-.about-image{
+-    flex: 1;
+-    margin-left: 40px;
+-    overflow: hidden;
+-    position: relative;
+-   
+-    
+-}
+-
+-.about-image img{
+-    max-width: 100%;
+-    height: auto;
+-    display: block;
+-    transition: 0.5% ease;
+-}
+-.about-image:hover img{
+-    transform: scale(1,2);
+-}
+-
+-.about-content {
+-    flex: 1;
+-}
+-
+-.about-content h2{
+-    font-size: 23px;
+-    margin-bottom: 15px;
+-    color: #333;
+-}
+-.about-content p{
+-    font-size: 18px;
+-    line-height: 1.5;
+-    color: #666;
+-}
+-
+-.about-content .read-more{
+-    display: inline-block;
+-    padding: 10px 20px;
+-    background-color:#4caf50 ;
+-    color: #fff;
+-    font-size: 19px;
+-    text-decoration: none;
+-    border-radius: 25px;
+-    margin-top: 15px;
+-    transition: 0.3s ease;
+-}
+-.about-content .read-more:hover{
+-    background-color: #3e8e41;
+-
+-}
+-@media screen and (max-width: 768px) {
+-    .heading{
+-        padding: 0px 20px;
+-    }
+-    .heading h1{
+-        font-size: 36px;
+-    }
+-    .heading p{
+-        font-size: 17px;
+-        margin-bottom:0px ;
+-        
+-    }
+-    .container{
+-        padding: 0px;
+-
+-    }
+-.about{
+-    padding: 20px;
+-    flex-direction: column;
+-}
+-
+-.about-content{
+-    padding: 0px;
+-    font-size: 16px;
+-}
+-.about-content .read-more{
+-    font-size: 16px;
+-}
+-       
+-    
+-
+-}
+-
+-
+-
+-
+-h2{
+-       font-size: 18px;
+-    color: #333;
+-
+-}
+-.content p{
+-    margin: 10px 0 30px;
+-    color: #333; 
+-}
+-
+-.Login{
+-   display: inline-block; 
+-   text-decoration: none;
+-   padding: 14px 40px;
+-    font-size: 20px;
+-    font-weight: 400;
+-    border-radius: 30px;
+-    background-image: linear-gradient(45deg, #4caf50);
+-    transition: 0.5s ease;
+-}
+-
+-button{
+-    
+-    width: 40%;
+-    height: 40px;
+-    background: #4caf50;
+-    border: none;
+-    outline: none;
+-    border-radius: 40px;
+-    cursor: pointer;
+-    font-size: 1em;
+-    font-weight: 500;
+-  
+-}
+-.nav{
+-  padding: 10px 0; 
+-  display: flex; 
+-  align-items: center;
+-  justify-content: space-between;
+-
+-}
+-.logo{
+-    width: 140px;
+-    color:#4caf50;
+-    font-size: 40px;
+-}
+-
+-nav ul li{
+-    display: inline-block;
+-    list-style: none;
+-    margin: 10px 15px;
+-}
+-
+-nav ul li a{
+-    text-decoration: none;
+-    color: #000;
+-    font-weight: 400;
+-
+-}
+-.login-btn{
+-   text-decoration: none; 
+-   color: #000;
+-   margin-right: 15px;
+-   font-weight: 400;
+-   font-size: 10px;
+-    padding: 10px 20px;
+-    border-radius: 20px;
+-    background-image: linear-gradient(45deg, #4caf50);
+-}
+-.navdiv{
+-    display: flex;
+-    align-items: center;
+-    justify-content: space-between;
+-}
+\ No newline at end of file
+diff --git a/style2.css b/style2.css
+deleted file mode 100644
+index fa038cd..0000000
+--- a/style2.css
++++ /dev/null
+@@ -1,190 +0,0 @@
+-* {
+-    margin: 0;
+-    padding: 0;
+-    box-sizing: border-box;
+-    font-family: 'Poppins' sans-serif;
+-
+-}
+-
+-
+-
+-
+-body {
+-
+-    display: flex;
+-    justify-content: center;
+-    align-items: center;
+-    min-height: 100vh;
+-    background: #000;
+-    background: url(imag6.png)no-repeat;
+-    background-size: cover;
+-}
+-
+-
+-
+-
+-
+-
+-.Reset {
+-    position: absolute;
+-    width: 400px;
+-    height: 500px;
+-    background: rgb(0, 128, 64);
+-    border: 2px solid rgba(255,255,255, .5);
+-    border-radius: 20px;
+-    display: flex;
+-    justify-content: center;
+-    align-items: center;
+-
+-}
+-
+-
+-
+-h2 {
+-
+-    font-size: 2em;
+-    color: black;
+-    text-align: center;
+-}
+-
+-.h2 p {
+-    font-family: Arial;
+-    font-size: 2em;
+-    color: white;
+-}
+-
+-.input-box {
+-    position: relative;
+-    width: 300px;
+-    margin: 30px 0;
+-border-bottom: 2px solid #fff;
+-}
+-
+-.input-box label {
+-    position: absolute;
+-    top: 50%;
+-    left: 5px;
+-    transform: translateY(-50%);
+-    font-size: 1em;
+-    color: #fff;
+-    pointer-events: none;
+-    transition: .5s;
+-}
+-
+-.input-box input:focus~label,
+-.input-box input:valid~label {
+-    top: -5px;
+-
+-}
+-    
+-.input-box input {
+-    width: 100%;
+-    height: 50px;
+-    background: transparent;
+-    border: none;
+-    outline: none;
+-    font-size: 3em;
+-    color: #fff;
+-    padding: 0 35px 0 5px;
+-
+-}
+-
+-button {
+-   width: 300px;
+-    height: 40px;
+-    background: #fff;
+-    border: none;
+-    outline: none;
+-    border-radius: 10px;
+-    cursor: pointer;
+-    font-size: 1em;
+-    text-align: center;
+-    position: relative;
+-   
+-    font-weight: 200;
+-  
+-
+-}
+-
+-
+-.Frontpage{
+-    width: 100%;
+-    min-height: 100hv;
+-    background-position: center;
+-    background-size: cover;
+-    padding: 10px 10%;
+-    overflow: hidden;
+-    position: relative;
+-}
+-
+-.nav{
+-  padding: 10px 0; 
+-  display: flex; 
+-  align-items: center;
+-  justify-content: space-between;
+- 
+-
+-}
+-.logo{
+-    width: 160px;
+-    color:#4caf50;
+-    font-size: 40px;
+-}
+-
+-nav ul li{
+-    display: inline-block;
+-    list-style: none;
+-    margin: 10px 10px;
+-    justify-content: space-between;
+-}
+-
+-nav ul li a{
+-    text-decoration: none;
+-    color: #000;
+-    font-weight: 400;
+-
+-}
+-.login-btn{
+-    display: inline-block;
+-   text-decoration: none; 
+-   color: #000;
+-   margin-right: 15px;
+-   font-weight: 400;
+-   font-size: 14px;
+-    padding: 10px 20px;
+-    border-radius: 20px;
+-    background-image: linear-gradient(45deg, #4caf50);
+-}
+-.btn{
+-   display: inline-block; 
+-   text-decoration: none;
+-   padding: 10px 20px;
+-    color: #000;
+-    font-size: 14px;
+-    font-weight: 400;
+-    border-radius: 20px;
+-    background-image: linear-gradient(45deg, #4caf50);
+-    transition: 0.5s ease;
+-}
+-
+-
+-.content{
+-    font-size: 20px;
+-    color: #222;
+-
+-}
+-.content p{
+-    margin: 10px 0 30px;
+-    color: #333; 
+-}
+-
+-.image{
+-    width: 530px;
+-    position: absolute;
+-    bottom: 0;
+-    right: 10%;
+-}
+-
+-
+-
+-
