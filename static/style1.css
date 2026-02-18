@@ -7,8 +7,8 @@
 }
 
 body{
-   
-
+   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
    background-color: #f2f2f2;
 }
 .heading {
@@ -26,6 +26,7 @@ body{
     color: #000;
     margin-bottom: 25px;
     position: relative;
+    font-weight: 700;
 }
 
 .heading h1::after{
@@ -43,6 +44,10 @@ body{
     font-size: 18px;
     color: #666;
     margin-bottom: 35px;
+}
+.heading p,
+.about-content p {
+    font-weight: 400;
 }
  
 .container {
@@ -71,10 +76,10 @@ body{
     max-width: 100%;
     height: auto;
     display: block;
-    transition: 0.5% ease;
+    transition: 0.5s ease;
 }
 .about-image:hover img{
-    transform: scale(1,2);
+    transform: scale(1.02);
 }
 
 .about-content {
@@ -85,6 +90,7 @@ body{
     font-size: 23px;
     margin-bottom: 15px;
     color: #333;
+    font-weight: 700;
 }
 .about-content p{
     font-size: 18px;
