@@ -3,40 +3,97 @@
 
 {% block content %}
   <div class="heading">
-      <h1>About Us</h1>
-      <p>
-        ProTrade is a certified financial firm that manages client portfolios,
-        analyzes market trands, and executes trades through newly developed
-        application. It acts as intermediaries, buying, selling stocks,
-        bonds, and other investments on the behaf of clients. It also
-        offers investment advice to help clients meet their financail goals.
-        ProTrade is the leading fianincial firm that facilitates stock market
-        trades based on client instruction or their own recomendation.
-      </p>
+    <h1>About Us</h1>
+    <p>
+      ProTrade is a certified financial firm that manages client portfolios,
+      analyzes market trands, and executes trades through newly developed
+      application. It acts as intermediaries, buying, selling stocks,
+      bonds, and other investments on the behaf of clients. It also
+      offers investment advice to help clients meet their financail goals.
+      ProTrade is the leading fianincial firm that facilitates stock market
+      trades based on client instruction or their own recomendation.
+    </p>
   </div>
 
+  <!-- Container 1 -->
   <div class="container">
-      <section class="about">
-          <div class="about-image">
-              <img src="{{ url_for('static', filename='imag5.png') }}" alt="About ProTrade">
-          </div>
+    <section class="about">
+      <div class="about-image">
+        <img src="{{ url_for('static', filename='imag5.png') }}" alt="About ProTrade">
+      </div>
 
-          <div class="about-content">
-              <h2>Intelligent Market Systems</h2>
-              <p>
-                ProTrade online trading applications have empowered traders to managers.
-                These days most apps come with various risks and challenges including
-                security concerns, market volatility, real-time data integration,
-                user experience, data accuracy and reliability. However, ProTrade is
-                equiped with fast-paced and high performace secuirty tools. Security is the
-                most serious concern when using stock trading apps. Security risk can lead
-                to sensitive personal and financial data breaches. ProTrade provides real-time
-                access to market data to make cautious rather than impulsive trading decisions
-                particularly during critical trading moments.
-              </p>
+      <div class="about-content">
+        <h2>Intelligent Market Systems</h2>
+        <p>
+          ProTrade online trading applications have empowered traders to managers.
+          These days most apps come with various risks and challenges including
+          security concerns, market volatility, real-time data integration,
+          user experience, data accuracy and reliability.
+        </p>
 
-              <a href="#" class="read-more">Read More</a>
-          </div>
-      </section>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </section>
+  </div>  <!-- ✅ CLOSE container 1 -->
+
+  <!-- Heading section -->
+  <div class="heading">
+    <h1>ProTrade the choice of smart investors!</h1>
+
+    <p>
+      Investors who wish to invest in the stock market should only need to establish
+      a budget and define their financial goals. The rest—assessing risk tolerance,
+      evaluating options, and tracking trends—can be handled by us.
+    </p>
+
+    <h2>Tell us what you want to know</h2>
+    <p>
+      Saving and budgeting • Saving for retirement • Managing estate planning • Preparing for college
+    </p>
+
+    <h2>Let’s help you take action</h2>
+    <p>Choose the account type that best suits your needs and start trading with ProTrade today.</p>
   </div>
+
+  <!-- Container 2 -->
+  <div class="container">
+    <section class="about">
+      <div class="about-image">
+        <img src="{{ url_for('static', filename='imag12.png') }}" alt="ProTrade">
+      </div>
+
+      <div class="about-content">
+        <h2>Investment accounts to choose from</h2>
+        <p>
+          Different investment account types serve different goals like retirement, education, and more.
+        </p>
+
+        <ul>
+          <li><strong>Stocks:</strong> Invest in companies and potentially earn dividends/capital gains.</li>
+          <li><strong>Bonds:</strong> Lend to governments or corporations for interest payments.</li>
+          <li><strong>Mutual Funds:</strong> Diversified pooled investments managed as a portfolio.</li>
+          <li><strong>ETFs:</strong> Like mutual funds but traded on exchanges.</li>
+          <li><strong>REITs:</strong> Real estate exposure without direct ownership.</li>
+          <li><strong>Cryptocurrencies:</strong> Digital assets like Bitcoin and Ethereum (higher risk).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="about-image">
+        <img src="{{ url_for('static', filename='imag7.png') }}" alt="Account types">
+      </div>
+
+      <div class="about-content">
+        <h2>Choose the account type that best suits your needs</h2>
+        <p>
+          ProTrade offers a variety of account types to match different goals and preferences.Whether you're looking for a retirement account, an education savings account, or a general investment account, ProTrade has options to suit your needs. Each account type comes with its own set of features and benefits, allowing you to choose the one that aligns best with your financial objectives.
+        </p>
+
+        <div class="back-container">
+          <a href="{{ url_for('home') }}" class="back-button">Back</a>
+        </div>
+      </div>
+    </section>
+  </div> 
 {% endblock %}
