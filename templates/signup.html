@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block title %}Sign Up{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+{% endblock %}
+
+{% block content %}
+<div style="padding:20px; font-size:24px; color:red;">
+  {{ debug_marker }}
+</div>
+<div class="signup-box">
+  <form method="POST" action="{{ url_for('register') }}">
+    <h2>Sign Up</h2>
+
+    <div class="input-box">
+      <input type="text" name="first_name" required>
+      <label>First Name</label>
+    </div>
+
+    <div class="input-box">
+      <input type="text" name="last_name" required>
+      <label>Last Name</label>
+    </div>
+
+    <div class="input-box">
+      <input type="email" name="email" required>
+      <label>Email</label>
+    </div>
+
+    <div class="input-box">
+      <input type="password" name="password" required>
+      <label>Password</label>
+    </div>
+
+    <div class="terms">
+      <label>
+        <input type="checkbox" name="terms" required>
+        I agree to ProTrade’s Terms of Service & Privacy Policy
+      </label>
+    </div>
+
+    <button type="submit" class="btn-submit">Next</button>
+
+    <p class="login-link">
+      Already have an account?
+      <a href="{{ url_for('login') }}">Log in</a>
+    </p>
+  </form>
+</div>
+{% endblock %}

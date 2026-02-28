@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% block title %}register{% endblock %}
+{% block page_css %}
+<link rel = "stylesheet" href="{{url_for('static', filename='base.css')}}">
+{% endblock %}
+
+
+
+{% block content %}
+
+<!-- TOP / HERO SECTION -->
+<section class="hero">
+  <nav class="hero-nav">
+    <div class="brand">
+      <h1 class="logo">ProTrade</h1>
+    </div>
+
+    <ul class="hero-menu">
+      <li><a href="#top">ProTrade</a></li>
+      <li><a href="#accounts">Account Types</a></li>
+      <li><a href="#invest">Investment Options</a></li>
+      <li><a href="#why">Why ProTrade</a></li>
+      <li><a href="#about">About Us</a></li>
+    </ul>
+
+    <div class="hero-actions">
+      <a href="{{ url_for('login') }}" class="btn btn-outline">Log In</a>
+      <a href="{{ url_for('signup') }}" class="btn btn-solid">Sign Up</a>
+    </div>
+  </nav>
+
+  <div class="hero-body" id="top">
+    <div class="hero-text">
+      <h2 class="hero-title">ProTrade<br>Intelligent<br>Market<br>Systems</h2>
+      <p class="hero-subtitle">Build your financial strategy, track the market & become a better investor.</p>
+      <a href="{{ url_for('signup') }}" class="btn btn-solid">Join Now</a>
+    </div>
+
+    <div class="hero-media">
+      <img src="{{ url_for('static', filename='imag5.png') }}" class="hero-image" alt="ProTrade">
+    </div>
+  </div>
+</section>
+
+
+<!-- BOTTOM / ACCOUNT TYPES SECTION -->
+<section class="accounts" id="accounts">
+  <div class="heading">
+    <h1>Account Types</h1>
+
+    <h2 class="accounts-prompt">
+      Are you ready to invest?<br>
+      What goals are you investing for?<br>
+      Let’s help you take action.
+    </h2>
+
+    <p class="accounts-desc">
+      Choose the account type that best suits your needs and start trading with ProTrade today.
+    </p>
+  </div>
+
+  <div class="container">
+    <section class="about">
+      <div class="about-image">
+        <img src="{{ url_for('static', filename='imag11.png') }}" alt="Account options">
+      </div>
+
+      <div class="about-content">
+        <h2>Investment accounts to choose from</h2>
+        <p>
+          Different investment account types serve different purposes—retirement, education, healthcare,
+          a child’s future savings, and more. These accounts help you reach your financial goals.
+        </p>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="about-image">
+        <img src="{{ url_for('static', filename='imag10.png') }}" alt="Choose account">
+      </div>
+
+      <div class="about-content">
+        <h2>Choose the account type that best suits your needs</h2>
+        <p>
+          ProTrade offers a variety of account types to match different goals and preferences.
+          Each type includes features that help you align your investing with your objectives.
+        </p>
+
+        <a href="#top" class="btn btn-solid back-to-top">Back to top</a>
+      </div>
+    </section>
+  </div>
+</section>
+
+{% endblock %}

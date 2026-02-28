@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Log In</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+{% extends "layout.html" %}
+{% block title %}login{% endblock %}
 
-<body>
+{% block page_css %}
+<link rel = "stylesheet" href="{{url_for('static', filename='style.css')}}">
+{% endblock %}
+
+{% block content %}
  <div class="login-box">
         <form action="">
             <h2>login</h2>
@@ -27,7 +24,7 @@
             <label>password</label>
             </div>
             <div class="remember-forget">
-                <lebel><input type="checkbox">Remember me</lebel>
+                <label><input type="checkbox">Remember me</label>
                 <a href="Resett.html">Forget Password?</a> 
             </div>
             <button type="submit">Login</button>
@@ -36,8 +33,6 @@
             </div>
         </form>
     </div>
-    </section>
+   
 
-</body>
-</html>
-<body>
+{% endblock %}
