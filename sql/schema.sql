@@ -53,3 +53,14 @@ CREATE TABLE market_schedule (
     is_open_today INTEGER NOT NULL DEFAULT 1 CHECK (is_open_today IN (0, 1)),
     UNIQUE (day_of_the_week)
 );
+
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  username TEXT NOT NULL UNIQUE,
+  email TEXT NOT NULL UNIQUE,
+  phone TEXT NOT NULL,
+  password_hash TEXT NOT NULL,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP
+);

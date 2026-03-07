@@ -1,38 +1,52 @@
 {% extends "layout.html" %}
-{% block title %}login{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block page_css %}
-<link rel = "stylesheet" href="{{url_for('static', filename='style.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 {% endblock %}
 
 {% block content %}
- <div class="login-box">
-        <form action="">
-            <h2>login</h2>
-            <div class="input-box">
-                <span class="icon">
-                    <ion-icon name="mail"></ion-icon>
-                 </span>
-                 <input type="email" required>
-                 <label>Email</label>
-            </div>
-            <div class="input-box">
-                <span class="icon">
-                    <ion-icon name="lock-closed"></ion-icon>
-                </span>
-            <input type="password" required>
-            <label>password</label>
-            </div>
-            <div class="remember-forget">
-                <label><input type="checkbox">Remember me</label>
-                <a href="Resett.html">Forget Password?</a> 
-            </div>
-            <button type="submit">Login</button>
-            <div class="registr-link">
-                <p>Don't have an account? <a href="Sign Up.html">Register</a></p>
-            </div>
-        </form>
+<section class="login-page">
+  <div class="login-card">
+    <div class="login-header">
+      <p class="login-eyebrow">Welcome back</p>
+      <h1>Log in to ProTrade</h1>
+      <p class="login-subtext">Access your account, portfolio, and trading tools.</p>
     </div>
-   
 
+    <form method="POST" action="{{ url_for('login') }}" class="login-form">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <div class="input-wrap">
+          <ion-icon name="mail-outline"></ion-icon>
+          <input id="email" name="email" type="email" placeholder="Enter your email" required>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <div class="input-wrap">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <input id="password" name="password" type="password" placeholder="Enter your password" required>
+        </div>
+      </div>
+
+      <div class="login-options">
+        <label class="remember-me">
+          <input type="checkbox" name="remember">
+          <span>Remember me</span>
+        </label>
+
+        <a href="{{ url_for('reset') }}" class="forgot-link">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="login-submit">Log In</button>
+
+      <p class="register-text">
+        Don’t have an account?
+        <a href="{{ url_for('signup') }}">Create one</a>
+      </p>
+    </form>
+  </div>
+</section>
 {% endblock %}
