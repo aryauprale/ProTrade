@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User & Admin Login</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <select id="role"required>
+                <option value="">Select Role</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>       
+           
+            <input type="email" id="email" placeholder="Enter Email" required> 
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+
+             <div class="registr-link">
+
+               
+                 <div class="remember-forget">
+                <label><input type="checkbox">Remember me</label>
+                <a href="Reset2.html">Forget Password?</a> 
+            </div>
+                
+                <p>Don't have an account? <a href="Sign Up.html">Register</a></p>
+            </div>
+        </form>
+             <label class="checkbox-container">
+                <input type="checkbox" id="agree" required>
+                <span>I agree to the <a href="#">ProTrade Services</a> & <a href="#">Privacy Policy</a></span>
+                 
+            </label>
+
+        </form>
+        <p id="message"></p>
+    </div>
+    <script>
+       document.getElementById('loginForm').addEventListener('submit', async(event) => {
+            event.preventDefault(); // Prevent form submission
+
+            // Get input values
+            const role = document.getElementById('role').value;
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Perform login logic (e.g., validate credentials, redirect to dashboard)
+            // For demonstration, we'll just log the input values
+            console.log('Role:', role);
+             console.log('Email:', email);
+            console.log('Password:', password);
+
+            // Redirect to dashboard or show an error message based on login success
+        }); const response = await fetch('http://localhost:8080/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                role: role,
+                email: email,
+                password: password
+            })
+        });
+
+        const result = await response.json();
+        document.getElementById('message').innerText = result.message || result.console.error;
+    </script>
+</body>
+</html>
