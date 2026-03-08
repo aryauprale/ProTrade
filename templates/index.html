@@ -1,101 +1,124 @@
 {% extends "layout.html" %}
+
+{% block title %}ProTrade{% endblock %}
+
 {% block page_css %}
-<link rel = "stylesheet" href="{{url_for('static', filename='style1.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 {% endblock %}
+
 {% block content %}
 
-<div class="heading">
-  <div class="content">
+<section class="hero-section">
+  <div class="hero-text">
+    <p class="eyebrow">Smart investing starts here</p>
     <h1>Welcome to ProTrade</h1>
-    <p>
-      Hello User! We are glad to have you here.<br>
-      ProTrade is your gateway to the world of trading and investment opportunities.
+    <p class="hero-lead">
+      ProTrade is your gateway to modern trading and investment opportunities.
+      Explore the market with confidence through a platform designed to help you
+      learn, plan, and grow.
     </p>
   </div>
 
-  <div class="about-content">
-    <!-- VERSION CHECK 123 -->
-    <h2>Discover the Power of ProTrade</h2>
+  <div class="hero-image-wrap">
+    <img src="{{ url_for('static', filename='imag10.png') }}" alt="ProTrade dashboard preview">
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="section-heading">
+    <p class="eyebrow">Why ProTrade</p>
+    <h2>Discover the power of a smarter investing platform</h2>
     <p>
-      ProTrade is a leading online trading platform that provides users with access
-      to a wide range of financial markets, including stocks, forex, commodities,
-      and cryptocurrencies. With its user-friendly interface and powerful trading tools,
-      ProTrade empowers traders of all levels to make informed decisions and execute
-      trades with confidence.
+      ProTrade gives users access to a wide range of financial markets, including
+      stocks, forex, commodities, and cryptocurrencies. With a clean interface
+      and practical trading tools, ProTrade supports both beginners and growing investors.
     </p>
   </div>
 
-  <section class="about">
-    <div class="about-image">
-      <img src="{{ url_for('static', filename='imag10.png') }}" alt="About ProTrade">
-    </div>
-  </section>
-
-  <div class="about-content">
-    <h2>Create your investing game plan with ProTrade</h2>
-    <p>
-      ProTrade is a leading online trading platform that provides users with access
-      to a wide range of financial markets, including stocks, forex, commodities,
-      and cryptocurrencies. With its user-friendly interface and powerful trading tools,
-      ProTrade empowers traders of all levels to make informed decisions and execute
-      trades with confidence.
-    </p>
-  </div>
-</div>
-
-<div class="heading">
-  <h1>Why ProTrade?</h1>
-  <p>
-    ProTrade investment team is a group of professional advisers behind our financial firm.
-    This team takes a comprehensive strategic approach to manage clients' portfolios and
-    shares clients' progress on a regular basis directly on the account dashboard.
-  </p>
-</div>
-
-<div class="container">
-  <section class="about-imag">
-    <div class="about-image">
-      <img src="{{ url_for('static', filename='imag7.png') }}" alt="ProTrade feature">
-    </div>
-
-    <div class="about-content">
-      <h2>Level Up Your Investing Strategies with ProTrade!</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>Build your investing game plan</h3>
       <p>
-        ProTrade offers advanced investment strategies tailored to your financial goals.
-        Our team of experts provides personalized advice and ongoing support to help you
-        achieve long-term success in the market.
+        Create a strategy that fits your goals, monitor the market, and make more
+        informed decisions with tools that support long-term financial growth.
       </p>
-      <a href="#" class="read-more">Read More</a>
     </div>
-  </section>
-</div>
-<div class="heading">
-         
-        <h2>Investment Options</h2>
-        <p>We offer a variety of investment 
-            options to suit your financial goals 
-            and risk tolerance. Whether you're a 
-            beginner or an experienced investor, 
-            we have something for everyone.</p>
-        <ul>
-            <li><strong>Stocks:</strong> Invest in individual companies and potentially earn dividends and capital gains.</li>
-            <li><strong>Bonds:</strong> Lend money to governments or corporations in exchange for regular interest payments.</li>
-            <li><strong>Mutual Funds:</strong> Pool your money with other investors to invest in a diversified portfolio of stocks, bonds, or other assets.</li>
-            <li><strong>Exchange-Traded Funds (ETFs):</strong> Similar to mutual funds but traded on stock exchanges, offering flexibility and diversification.</li>
-            <li><strong>Real Estate Investment Trusts (REITs):</strong> Invest in real estate properties without the hassle of direct ownership.</li>
-            <li><strong>Cryptocurrencies:</strong> Explore the world of digital currencies like Bitcoin and Ethereum for potential high returns.</li>
-        </ul>
-        <div class="about-content">
-            <section class="about">              
-                <p>Invest in individual companies and potentially earn dividends and capital gains.</p>
-            <img src="{{ url_for('static', filename='imag9.png') }}" alt="Investment Options">
-            
-        
 
-            <p>Our platform provides tools and resources to help you make informed investment decisions. Start building your portfolio today!</p>
-            <img src="{{ url_for('static', filename='imag8.png') }}" alt="Investment Options">
-          <a href="#" class="read-more">Read More</a>  
+    <div class="feature-card">
+      <h3>Guidance from real strategy</h3>
+      <p>
+        ProTrade is built around thoughtful investing. Our platform is designed to
+        help users organize ideas, track progress, and stay focused on their financial objectives.
+      </p>
     </div>
-    </section>
-    
+
+    <div class="feature-card">
+      <h3>Confidence through clarity</h3>
+      <p>
+        From market exploration to portfolio planning, ProTrade helps traders of
+        different experience levels take action with more confidence and less confusion.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="split-section">
+  <div class="split-image">
+    <img src="{{ url_for('static', filename='imag7.png') }}" alt="Mobile trading interface">
+  </div>
+
+  <div class="split-content">
+    <p class="eyebrow">Platform value</p>
+    <h2>Why investors choose ProTrade</h2>
+    <p>
+      ProTrade supports users with practical tools, strategy-focused design, and a platform
+      experience that feels approachable instead of overwhelming. It helps investors move
+      from curiosity to action with more structure and confidence.
+    </p>
+  </div>
+</section>
+
+<section class="investment-section">
+  <div class="section-heading">
+    <p class="eyebrow">Investment options</p>
+    <h2>Explore opportunities that match your goals</h2>
+    <p>
+      Whether you're a beginner or a more experienced investor, ProTrade offers a range
+      of options to support different goals, timelines, and risk preferences.
+    </p>
+  </div>
+
+  <div class="investment-grid">
+    <div class="investment-card">
+      <h3><strong>Stocks</strong></h3>
+      <p>Invest in individual companies and potentially earn capital gains or dividends.</p>
+    </div>
+
+    <div class="investment-card">
+      <h3><strong>Bonds</strong></h3>
+      <p>Lend money to governments or corporations in exchange for regular interest payments.</p>
+    </div>
+
+    <div class="investment-card">
+      <h3><strong>Mutual Funds</strong></h3>
+      <p>Pool money with other investors to access a diversified portfolio of assets.</p>
+    </div>
+
+    <div class="investment-card">
+      <h3><strong>ETFs</strong></h3>
+      <p>Trade diversified funds on stock exchanges with flexibility and broad market access.</p>
+    </div>
+
+    <div class="investment-card">
+      <h3><strong>REITs</strong></h3>
+      <p>Invest in real estate-related assets without directly owning physical property.</p>
+    </div>
+
+    <div class="investment-card">
+      <h3><strong>Cryptocurrencies</strong></h3>
+      <p>Explore digital assets like Bitcoin and Ethereum as part of a modern investing strategy.</p>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
