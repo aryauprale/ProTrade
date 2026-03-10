@@ -1,101 +1,122 @@
 {% extends "layout.html" %}
 {% block title %}About Us{% endblock %}
+
 {% block page_css %}
-<link rel = "stylesheet" href="{{url_for('static', filename='style1.css')}}">
+<link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
 {% endblock %}
+
 {% block content %}
-  <div class="heading">
-    <h1>About Us</h1>
+<section class="about-hero">
+  <div class="about-hero-inner">
+    <p class="eyebrow">About ProTrade</p>
+    <h1>Built for smarter investing</h1>
+    <p class="hero-text">
+      ProTrade is a modern financial platform designed to help users explore markets,
+      understand investment options, and make better-informed decisions with greater confidence.
+    </p>
+  </div>
+</section>
+
+<section class="about-panel">
+  <div class="panel-image">
+    <img src="{{ url_for('static', filename='imag5.png') }}" alt="ProTrade market system">
+  </div>
+
+  <div class="panel-content">
+    <p class="eyebrow">What we do</p>
+    <h2>Intelligent market systems</h2>
     <p>
-      ProTrade is a certified financial firm that manages client portfolios,
-      analyzes market trands, and executes trades through newly developed
-      application. It acts as intermediaries, buying, selling stocks,
-      bonds, and other investments on the behaf of clients. It also
-      offers investment advice to help clients meet their financail goals.
-      ProTrade is the leading fianincial firm that facilitates stock market
-      trades based on client instruction or their own recomendation.
+      ProTrade helps users analyze market trends, manage investment ideas, and better understand
+      financial opportunities through a more structured and user-friendly experience.
+    </p>
+    <p>
+      Modern investing platforms face challenges like security concerns, market volatility,
+      real-time data integration, user experience, and data reliability. ProTrade is built with
+      those realities in mind.
+    </p>
+  </div>
+</section>
+
+<section class="about-story">
+  <div class="section-heading">
+    <p class="eyebrow">Why ProTrade</p>
+    <h2>The choice of smart investors</h2>
+    <p>
+      Investors should be able to focus on their financial goals — budgeting, saving, growth,
+      and long-term planning — without feeling overwhelmed by confusing tools or scattered information.
     </p>
   </div>
 
-  <!-- Container 1 -->
-  <div class="container">
-    <section class="about">
-      <div class="about-image">
-        <img src="{{ url_for('static', filename='imag5.png') }}" alt="About ProTrade">
-      </div>
+  <div class="story-grid">
+    <div class="story-card">
+      <h3>Goal-focused investing</h3>
+      <p>
+        Start with what matters most: defining your goals, understanding your budget,
+        and choosing investments that align with your priorities.
+      </p>
+    </div>
 
-      <div class="about-content">
-        <h2>Intelligent Market Systems</h2>
-        <p>
-          ProTrade online trading applications have empowered traders to managers.
-          These days most apps come with various risks and challenges including
-          security concerns, market volatility, real-time data integration,
-          user experience, data accuracy and reliability.
-        </p>
+    <div class="story-card">
+      <h3>Clearer decision-making</h3>
+      <p>
+        ProTrade is designed to simplify complex investing concepts so users can make
+        stronger decisions with more confidence.
+      </p>
+    </div>
 
-        <a href="#" class="read-more">Read More</a>
-      </div>
-    </section>
-  </div>  <!-- ✅ CLOSE container 1 -->
+    <div class="story-card">
+      <h3>More structured growth</h3>
+      <p>
+        From learning about the market to building a long-term plan, ProTrade supports
+        a more organized and thoughtful investing journey.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <!-- Heading section -->
-  <div class="heading">
-    <h1>ProTrade the choice of smart investors!</h1>
+<section class="accounts-panel">
+  <div class="accounts-grid">
+    <div class="accounts-image">
+      <img src="{{ url_for('static', filename='imag12.png') }}" alt="Investment account options">
+    </div>
 
-    <p>
-      Investors who wish to invest in the stock market should only need to establish
-      a budget and define their financial goals. The rest—assessing risk tolerance,
-      evaluating options, and tracking trends—can be handled by us.
-    </p>
+    <div class="accounts-content">
+      <p class="eyebrow">Account types</p>
+      <h2>Investment accounts to choose from</h2>
+      <p>
+        Different investment account types support different financial goals like retirement,
+        education, diversification, and long-term wealth building.
+      </p>
 
-    <h2>Tell us what you want to know</h2>
-    <p>
-      Saving and budgeting • Saving for retirement • Managing estate planning • Preparing for college
-    </p>
+      <ul class="investment-list">
+        <li><strong>Stocks:</strong> Invest in companies and potentially earn capital gains or dividends.</li>
+        <li><strong>Bonds:</strong> Lend to governments or corporations in exchange for interest payments.</li>
+        <li><strong>Mutual Funds:</strong> Access diversified pooled investments managed as a portfolio.</li>
+        <li><strong>ETFs:</strong> Trade diversified funds on exchanges with flexibility and convenience.</li>
+        <li><strong>REITs:</strong> Gain real estate exposure without directly owning property.</li>
+        <li><strong>Cryptocurrencies:</strong> Explore digital assets like Bitcoin and Ethereum as higher-risk options.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <h2>Let’s help you take action</h2>
-    <p>Choose the account type that best suits your needs and start trading with ProTrade today.</p>
+<section class="about-panel alt">
+  <div class="panel-image">
+    <img src="{{ url_for('static', filename='imag7.png') }}" alt="ProTrade mobile investing">
   </div>
 
-  <!-- Container 2 -->
-  <div class="container">
-    <section class="about">
-      <div class="about-image">
-        <img src="{{ url_for('static', filename='imag12.png') }}" alt="ProTrade">
-      </div>
-
-      <div class="about-content">
-        <h2>Investment accounts to choose from</h2>
-        <p>
-          Different investment account types serve different goals like retirement, education, and more.
-        </p>
-
-        <ul>
-          <li><strong>Stocks:</strong> Invest in companies and potentially earn dividends/capital gains.</li>
-          <li><strong>Bonds:</strong> Lend to governments or corporations for interest payments.</li>
-          <li><strong>Mutual Funds:</strong> Diversified pooled investments managed as a portfolio.</li>
-          <li><strong>ETFs:</strong> Like mutual funds but traded on exchanges.</li>
-          <li><strong>REITs:</strong> Real estate exposure without direct ownership.</li>
-          <li><strong>Cryptocurrencies:</strong> Digital assets like Bitcoin and Ethereum (higher risk).</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="about">
-      <div class="about-image">
-        <img src="{{ url_for('static', filename='imag7.png') }}" alt="Account types">
-      </div>
-
-      <div class="about-content">
-        <h2>Choose the account type that best suits your needs</h2>
-        <p>
-          ProTrade offers a variety of account types to match different goals and preferences.Whether you're looking for a retirement account, an education savings account, or a general investment account, ProTrade has options to suit your needs. Each account type comes with its own set of features and benefits, allowing you to choose the one that aligns best with your financial objectives.
-        </p>
-
-        <div class="back-container">
-          <a href="{{ url_for('home') }}" class="back-button">Back</a>
-        </div>
-      </div>
-    </section>
-  </div> 
+  <div class="panel-content">
+    <p class="eyebrow">Choosing your path</p>
+    <h2>Find the account type that fits your needs</h2>
+    <p>
+      ProTrade offers account options for different goals and experience levels. Whether you are
+      planning for retirement, building a general investment account, or learning how markets work,
+      the platform is designed to support your next step.
+    </p>
+    <p>
+      Each option is meant to help users align financial decisions with their priorities,
+      timeline, and comfort level.
+    </p>
+  </div>
+</section>
 {% endblock %}
