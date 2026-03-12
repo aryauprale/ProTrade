@@ -30,11 +30,16 @@
             <a href="/profile" class="hover:underline">Profile</a>
             <a href="/aboutus" class="hover:underline">Portfolio</a>
         </div>
-        <a href="/login" class="login-btn">Log In</a>
-       
+        {% if session.get("user_id") %}
+          <span> Hi, {{ session["username"] }}</span>
+          <a href="/logout" class="login-btn">Log Out</a>
+        {% else  %}
+          <a href="/login" class="login-btn">Log In</a>
+          <a href="/register" class="login-btn">Register</a>
+        {% endif %}
     </nav>
 
-    
+   
     <main class="flex-grow w-full mx-auto p-6">
      {% with messages = get_flashed_messages(with_categories=true) %}
      {% if messages %}

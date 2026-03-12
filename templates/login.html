@@ -15,6 +15,17 @@
     </div>
 
     <form method="POST" action="{{ url_for('login') }}" class="login-form">
+        <div class="input-group">
+  <label for="role">Role</label>
+  <div class="input-wrap">
+    <ion-icon name="person-outline"></ion-icon>
+    <select id="role" name="role" required>
+      <option value="" disabled selected>Select role</option>
+      <option value="user">User</option>
+      <option value="admin">Admin</option>
+    </select>
+  </div>
+</div>
       <div class="input-group">
         <label for="email">Email</label>
         <div class="input-wrap">

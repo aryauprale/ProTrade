@@ -1,10 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import re
 
 app = Flask(__name__)
-app.secret_key = "dev"  # change later
+app.secret_key = "supersecretkey"  # change later
 
 
 def get_db():
@@ -74,7 +74,17 @@ def login():
         return redirect(url_for("login"))
 
     flash("Login successful!", "success")
+
+    session["username"] = user["username"]
+    session["user_id"] = user["id"]
+
     return redirect(url_for("home"))
+    
+@app.route("/logout")
+def logout():
+    session.clear()              # remember for remove all session data
+    flash("You have been logged out.", "success")
+    return redirect(url_for("login"))
 
 @app.route("/reset", methods=["GET", "POST"])
 def reset():
