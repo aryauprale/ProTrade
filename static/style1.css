@@ -236,3 +236,57 @@ nav ul li a{
 .about-content h2 { font-weight: 700; }
 strong { font-weight: 700; }
 
+.navbar {
+  background-color: #0b132b;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.nav-center {
+  gap: 28px;
+}
+
+.nav-center a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.nav-center a:hover {
+  color: #7bb661;
+}
+
+.nav-right {
+  gap: 16px;
+}
+
+.nav-btn {
+  background-color: #7bb661;
+  color: black;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.nav-btn:hover {
+  opacity: 0.9;
+}

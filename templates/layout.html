@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
     {% block page_css %}{% endblock %}
-    <!-- Ionicons for login page icons -->
+  <!-- this is my icons-->
     <script type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">
     </script>
@@ -19,27 +19,51 @@
 <body class="bg-gray-100 flex flex-col min-h-screen">
 
     
-    <nav class="bg-gray-900 text-white p-4 flex justify-between items-center">
-        <div class="font-bold text-lg">ProTrade</div>
-        <div class="space-x-4">
-            <a href="/" class="hover:underline">Home</a>
-            <a href="/exchange" class="hover:underline">Exchange</a>
-            <a href="/register" class="hover:underline">Register</a>
-            <a href="/aboutus" class="hover:underline">About</a>
-            <a href="/order" class="hover:underline">Order</a>
-            <a href="/profile" class="hover:underline">Profile</a>
-            <a href="/aboutus" class="hover:underline">Portfolio</a>
-        </div>
-        {% if session.get("user_id") %}
-          <span> Hi, {{ session["username"] }}</span>
-          <a href="/logout" class="login-btn">Log Out</a>
-        {% else  %}
-          <a href="/login" class="login-btn">Log In</a>
-          <a href="/register" class="login-btn">Register</a>
-        {% endif %}
-    </nav>
+   <nav class="bg-gray-900 text-white px-8 py-4 flex items-center justify-between shadow-md sticky top-0 z-50">
 
-   
+    <!-- LEFT: Logo -->
+    <div class="text-2xl font-bold tracking-wide">
+        <a href="/" class="hover:text-green-400 transition">ProTrade</a>
+    </div>
+
+    <!-- CENTER: Navigation -->
+    <div class="flex items-center space-x-8 text-sm font-medium">
+        <a href="/" class="hover:text-green-400 transition">Home</a>
+        <a href="/exchange" class="hover:text-green-400 transition">Exchange</a>
+        <a href="/aboutus" class="hover:text-green-400 transition">About</a>
+        <a href="/order" class="hover:text-green-400 transition">Order</a>
+        <a href="/profile" class="hover:text-green-400 transition">Profile</a>
+        <a href="/portfolio" class="hover:text-green-400 transition">Portfolio</a>
+    </div>
+
+    <!-- RIGHT: Auth Buttons -->
+    <div class="flex items-center space-x-4">
+
+        {% if session.get("user_id") %}
+            <span class="text-gray-300">Hi, {{ session["username"] }}</span>
+
+            <a href="/logout"
+               class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-full text-sm font-semibold transition">
+               Log Out
+            </a>
+
+        {% else %}
+
+            <a href="/login"
+               class="text-gray-300 hover:text-white transition">
+               Log In
+            </a>
+
+            <a href="/register"
+               class="bg-green-500 hover:bg-green-600 px-5 py-2 rounded-full text-sm font-semibold transition">
+               Register
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>
     <main class="flex-grow w-full mx-auto p-6">
      {% with messages = get_flashed_messages(with_categories=true) %}
      {% if messages %}

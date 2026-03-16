@@ -4,7 +4,7 @@ import sqlite3
 import re
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  # change later
+app.secret_key = "supersecretkey"  
 
 
 def get_db():
@@ -53,6 +53,10 @@ def about():
 def register():
     return render_template("register.html")
 
+@app.route("/test")
+def test():
+    return "Test route works"
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -79,6 +83,14 @@ def login():
     session["user_id"] = user["id"]
 
     return redirect(url_for("home"))
+
+@app.route("/exchange")
+def exchange():
+    conn = get_db()
+    stocks = conn.execute("SELECT * FROM stocks").fetchall()
+    conn.close()
+
+    return render_template("exchange.html", stocks=stocks)
     
 @app.route("/logout")
 def logout():
@@ -144,6 +156,39 @@ def signup():
     flash("Account created! Please log in.", "success")
     return redirect(url_for("login"))
 
+@app.route("/profile")
+def profile():
+    return "<h1>Profile page coming soon</h1>"
+
+@app.route("/order")
+def order():
+    return "<h1>Order page coming soon</h1>"
+
+@app.route("/portfolio")
+def portfolio():
+    return "<h1>Portfolio page coming soon</h1>"
+
+@app.route("/order/<ticker>")
+def order_stock(ticker):
+    conn = get_db()
+    stock = conn.execute(
+        "SELECT * FROM stocks WHERE ticker = ?",
+        (ticker,)
+    ).fetchone()
+    conn.close()
+
+    if stock is None:
+        flash("Stock not found.", "error")
+        return redirect(url_for("exchange"))
+
+    return render_template("order.html", stock=stock)
+
+@app.route("/buy/<ticker>", methods=["POST"])
+def buy_stock(ticker):
+    quantity = request.form.get("quantity")
+
+    flash(f"Buy request submitted for {quantity} share(s) of {ticker}.", "success")
+    return redirect(url_for("exchange"))
 
 if __name__ == "__main__":
     app.run(debug=True)
