@@ -12,6 +12,19 @@ function updateEstimate(){
      totalDisplay.innerText = `$${total}`;
 }
 
+function chekMarketAccess() {
+    const currntStatus =localStorage.getItem('market_status');
+    const buyBtn = doument.querySelector('.btn-buy');
+    const sellBtn = document.querySelector('.btn-sell');
+
+    if (currntStatus === "HALTED") {
+        buyBtn.disabled = true;
+        sellBtn.disabled = true;
+        buyBtn.innerText = "Market Halted";
+}
+}
+window.onload = checkMarketAccess;
+
 // Handle order Submission
 
 function processOrder(action) {
