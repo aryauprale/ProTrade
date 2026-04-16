@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style04.css">
+    <script src="script04.js" defer></script>
+
+    
+    <title>Inventory UPdate</title>
+</head>
+<body>
+    <div class="inventory-wrapper">
+        <a href="admin2.html" class="btn-back">Back to Dashboard</a>
+
+        <header class="inventory-header">
+            <h1>Stock Inventory Update</h1>
+
+            <p> Adjust the total number of shares available for public trading.</p>
+        </header>
+
+        <div class="inventory-grid">
+            <section class="control-card update-form">
+                <h3>Adjust Share Pool</h3>
+                <div class="form-group">
+                    <label>Select Ticker</label>
+                    <select id="tickerSelect">
+                        <option value="H01">H01 - High Growth</option>
+                        <option value="S05">S05 - stable Bond</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Action</label>
+                    <select id="adjustmentType">
+                        <option value="add">Add to Inventory (+)</option>
+                        <option value="subtruct">Remover from Inventory (-)</option>
+                        <option value="set">Set Exact Amount (=)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Amount of Shares</label>
+                    <input type="number" id="shareAmount" placeholder="Enter quantity">
+                </div>
+                <button class="btn-submit" onclick="processInventoryChange()">Commit Change</button>
+            </section>
+             <div class="form-group">
+             <section class="control-card inventory-list">
+                <h3>Live Inventory levels</h3>
+                <table id="inventoryTable">
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>On Hand</th>
+                            <th>Reserved</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryBody">
+                              </tbody>
+                </table>
+            </section>
+            </div>
+           
+        </div>
+    </div>
+</body>
+</html>
