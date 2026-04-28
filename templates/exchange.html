@@ -62,7 +62,7 @@ ${{ "%.2f"|format(stock.day_low) }}
 </td>
 
 <td class="p-4">
-<a href="/order/{{ stock.ticker }}" 
+<a href="{{ url_for('order', ticker=stock.ticker) }}" 
    class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
 Buy
 </a>

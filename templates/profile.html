@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='profile.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="profile-page">
+    <div class="profile-card">
+        <h1>My Profile</h1>
+        <p class="subtitle">Manage your account details and balance.</p>
+
+        <div class="profile-grid">
+            <div class="info-box">
+                <span>First Name</span>
+                <strong>{{ user.first_name }}</strong>
+            </div>
+
+            <div class="info-box">
+                <span>Last Name</span>
+                <strong>{{ user.last_name }}</strong>
+            </div>
+
+            <div class="info-box">
+                <span>Username</span>
+                <strong>{{ user.username }}</strong>
+            </div>
+
+            <div class="info-box">
+                <span>Email</span>
+                <strong>{{ user.email }}</strong>
+            </div>
+
+            <div class="info-box">
+                <span>Phone</span>
+                <strong>{{ user.phone }}</strong>
+            </div>
+
+            <div class="info-box">
+                <span>Role</span>
+                <strong>{{ user.role }}</strong>
+            </div>
+
+            <div class="info-box highlight">
+                <span>Cash Balance</span>
+                <strong>${{ "%.2f"|format(user.cash_balance) }}</strong>
+            </div>
+
+            <div class="info-box">
+                <span>Joined</span>
+                <strong>{{ user.created_at }}</strong>
+            </div>
+
+            <div class="cash-actions">
+              <h2>Cash Account</h2>
+              <p>Deposit or withdraw money from your cash balance.</p>
+
+              <form method="POST" action="{{ url_for('cash_transaction') }}">
+                <input type="number" name="amount" step="0.01" min="1" placeholder="Enter amount" required>
+
+                 <button type="submit" name="action" value="deposit" class="deposit-btn">
+                  Deposit
+                  </button>
+
+                 <button type="submit" name="action" value="withdraw" class="withdraw-btn">
+                   Withdraw
+                 </button>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

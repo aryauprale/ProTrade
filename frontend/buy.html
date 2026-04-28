@@ -2,117 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="style04.css">
+    <script src="script04.js" defer></script>
+    
+    <title>buy-sell</title>
 </head>
 <body>
-    <div class="=marketplace-container">
-        <header class="page-header">
-            <h1>Explor Products</h1>
-            <div class="Search-bar">
-                <input type="text" placeholder="Search for items ...">
-                <select>
-                    <option>Amazon</option>
-                    <option>Microsoft</option>
-                    <option>Tesla</option>
-                    <option>Meta</option>
-                </select>
-            </div>
-        </header>
-
-        <div class="product-gird">
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="imag5.png" alt="Product">
-                    <br>
-                    <span class="tag">Active listings</span>
-                    <br>
-                </div>
-                 <section class="active-listnigs"><h2>Active Listings</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Price</th>
-                        <th>Views</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   
-                     <tr>
-                        <td>Amazon</td>
-                        <td>$320.54</td>
-                        <td>115</td>
-                        <td><span class="status live">Live</span></td>
-                        <td><button class="edit-btn"><a href="">Add to cart</a></button>
-                        
-                    </tr>
-
-                     <tr>
-                        <td>Google</td>
-                        <td>$280.66</td>
-                        <td>83</td>
-                        <td><span class="status live">Live</span></td>
-                        <td><button class="edit-btn"><a href="">Add to cart</a></button>
-                        
-                        
-                    </tr>
-                     <tr>
-                        <td>Tesla</td>
-                        <td>$423.88</td>
-                        <td>144</td>
-                        <td><span class="status live">Live</span></td>
-                        <td><button class="edit-btn"><a href="">Add to cart</a></button>
-                       
-                        
-                    </tr>
-                     <tr>
-                        <td>Macrosoft</td>
-                        <td>$382.77</td>
-                        <td>40</td>
-                        <td><span class="status live">Live</span></td>
-                        <td><button class="edit-btn"><a href="">Add to cart</a></button>
-                        
-                        
-                    </tr>
-                     <tr>
-                        <td>Apple</td>
-                        <td>$655.00</td>
-                        <td>220</td>
-                        <td><span class="status live">Live</span></td>
-                        <td><button class="edit-btn"><a href="">Add to cart</a></button>
-                       
-                        
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-                 <div class="product-image">
-                    <img src="imag10.png" alt="Product">
-                    <br>
-                <div class="product-info"> <h3>Newly added</h3>
-
-                    <p class="price">Stocks</p>
-                    <button class="but-btn"><a href="">Add to cart</a></button>
-
-                 <div class="product-info"> <h3>AAL</h3>
-                    <p class="price">$128.16</p>
-                    <button class="but-btn"><a href="">Add to cart</a></button>
-                    
-                 <div class="product-info"> <h3>NOK</h3>
-                    <p class="price">$99.79</p>
-                 <button class="but-btn"><a href="">Add to cart</a></button>  
-
-                <div class="product-info"> <h3>BAC</h3>
-                    <p class="price">$48.35</p> 
-
-                <button class="but-btn"><a href="">Add to cart</a></button>
-                <button class="btn"><a href="">See more</a></button>                </div>            
+    <div class="order-card">
+        <div class="header">
+            <span class="symbol">AAPL</span>
+            <span class="price" id="current-price"> $182.45 <small>+1.2%</small></span>
         </div>
+
+        <div class="form-group">
+            <label for="order-type">Order Type</label>
+         <select id="order-type">
+            // an instruction to buy or sell immediately at the best current price
+            <option value="market">Market Order</option>
+            // an instruction to buy or sell at a specifi price or better
+            <option value="limit">Limit Order</option>
+         </select>
+        </div>
+            <div class="form-group">
+            <label for="shares">Quantity (Shares)</label>
+            <input type="number" id="shares" placeholder="0" min="1">
+            </div>
+        <div class="form-group">
+            <label for="limit-price">Limit Price ($)</label>
+            <input type="number" id="limit-price" value="182.45" step="0.01">
+        </div>
+        <div class="button-group">
+            <button id="buy-btn" class="btn btn-buy">BUY</button>
+            <button id="sell-btn" class="btn btn-sell">SELL</button>
+        <div>
+        <div class="estimate">
+            Estimated Total: <span id="total">$0.00</span>
+         </div>
+       
     </div>
+    
 </body>
 </html>

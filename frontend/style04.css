@@ -420,7 +420,7 @@ td {padding: 15p; border-bottom: 1px solid #eee;}
 
 
 
-# Market Control CSS
+
 
 .market-wrapper { max-width: 1000px; margin: 0 auto;}
 .market-header { 
@@ -493,7 +493,6 @@ table {width: 100%; border-collapse: collapse; margin-top: 15px;}
 th { text-align: left; color: #888; padding: 10px; border-bottom: 1px solid #333;}
 td {padding: 10px; border-bottom: 1px solid #222;}
 
-# Inventory Update CSS
 
 .inventory-wrapper {top: 20px; margin: 0 auto; background-color: lightblue;}
 .inventory-header {

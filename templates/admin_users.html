@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}User Audit{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='useraudit.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="audit-wrapper">
+    <a href="{{ url_for('admin2') }}" class="btn-back">Back to Dashboard</a>
+
+    <header class="audit-header">
+        <div>
+            <h1>User Account Audit</h1>
+            <p>Review registered users, roles, balances, and account activity.</p>
+        </div>
+
+        <input type="text" id="userSearch" placeholder="Search users..." onkeyup="filterUsers()">
+    </header>
+
+    <div class="audit-stats">
+        <div class="audit-card">
+            <span>Total Users</span>
+            <strong>{{ users|length }}</strong>
+        </div>
+
+        <div class="audit-card warning">
+            <span>Flagged Accounts</span>
+            <strong>0</strong>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table id="usersTable">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Balance</th>
+                    <th>Created</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>#{{ user.id }}</td>
+                    <td>{{ user.first_name }} {{ user.last_name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td><span class="role-badge">{{ user.role }}</span></td>
+                    <td>${{ "%.2f"|format(user.cash_balance) }}</td>
+                    <td>{{ user.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+function filterUsers() {
+    const input = document.getElementById("userSearch").value.toLowerCase();
+    const rows = document.querySelectorAll("#usersTable tbody tr");
+
+    rows.forEach(row => {
+        row.style.display = row.innerText.toLowerCase().includes(input) ? "" : "none";
+    });
+}
+</script>
+{% endblock %}

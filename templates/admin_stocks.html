@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block title %}Admin Stock Inventory{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='admin_stocks.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="admin-page">
+    <aside class="admin-sidebar">
+        <h2>ProTrade<span> Admin</span></h2>
+
+        <nav>
+            <a href="{{ url_for('admin2') }}">Dashboard</a>
+            <a href="{{ url_for('admin_users') }}">User Audit</a>
+            <a href="{{ url_for('admin_stocks') }}" class="active">Inventory</a>
+            <a href="{{ url_for('admin_market') }}">Market Control</a>
+        </nav>
+    </aside>
+
+    <main class="admin-content">
+        <div class="admin-header">
+            <div>
+                <h1>Stock Inventory Update</h1>
+                <p>Add new stocks or adjust available share volume.</p>
+            </div>
+        </div>
+
+        <section class="admin-grid">
+            <div class="admin-card">
+                <h3>Add New Stock</h3>
+
+                <form method="POST" action="{{ url_for('admin_add_stock') }}">
+                    <label>Company Name</label>
+                    <input name="company_name" required>
+
+                    <label>Ticker</label>
+                    <input name="ticker" required>
+
+                    <label>Total Volume</label>
+                    <input type="number" name="total_volume" required>
+
+                    <label>Initial Price</label>
+                    <input type="number" step="0.01" name="current_price" required>
+
+                    <button type="submit">Create Stock</button>
+                </form>
+            </div>
+
+            <div class="admin-card">
+                <h3>Current Stocks</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Company</th>
+                            <th>Price</th>
+                            <th>Volume</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for stock in stocks %}
+                        <tr>
+                            <td>{{ stock.ticker }}</td>
+                            <td>{{ stock.company_name }}</td>
+                            <td>${{ "%.2f"|format(stock.current_price) }}</td>
+                            <td>{{ "{:,}".format(stock.total_volume) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</div>
+{% endblock %}

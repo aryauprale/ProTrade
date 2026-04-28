@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}Orders{% endblock %}
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='orders.css') }}">
+{% endblock %}
+{% block content %}
+<div class="orders-page">
+    <h1>Your Orders</h1>
+
+    <div class="orders-table-container">
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Type</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.ticker }}</td>
+                    <td>{{ order.type }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>${{ "%.2f"|format(order.total) }}</td>
+
+                    <td>
+                        <span class="badge {{ order.status|lower }}">
+                            {{ order.status }}
+                        </span>
+                    </td>
+
+                    <td>
+                        {% if order.status == 'PENDING' %}
+                       <div class="action-buttons">
+                         <form method="POST" action="{{ url_for('cancel_order', order_id=order.id) }}">
+                          <button class="cancel-btn">Cancel</button>
+                            </form>
+
+                        <form method="POST" action="{{ url_for('execute_order', order_id=order.id) }}">
+                         <button class="execute-btn">Execute</button>
+                             </form>
+                        </div>
+                      {% else %}
+                         -
+                      {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
