@@ -1,0 +1,137 @@
+  root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --buy-color: #22c55e;
+    --sell-color: #ef4444;
+    --input-bg: #334255;
+    --accent-blue: #38bdf8;
+}
+
+body {
+    font-family: 'Inter' , system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.order-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px;
+    rgba:(0,0,0,0.5);
+    width: 360px;
+    border: 1px solid #334155;
+}
+
+.header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 1rem; 
+}
+
+.symbol {
+    font-size: 1.75rem;
+    font-weight: 800;
+    display: block;
+    letter-spacing: -0.025em;
+}
+
+.price {
+    color: var(--buy-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #475569;
+    background-color: var(--input-bg);
+    color: black;
+    box-sizing: border-box;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--accent-blue);
+}
+
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s opacity 0.2s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-buy {
+    
+    background-color:#22c55e;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    padding: 10px;
+    border-radius: 8px
+}
+
+.btn-sell {
+    
+   background-color: rgb(255, 123, 0);
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    padding: 10px;
+    border-radius: 8px
+}
+
+.estimate {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+#total {
+    color: var(--text-main);
+    font-weight: bold;
+}
