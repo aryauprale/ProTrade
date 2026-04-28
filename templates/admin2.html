@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block title %}Admin Portal{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style04.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="admin-dashboard">
+    <aside class="admin-sidebar">
+        <div class="sidebar-logo">
+            <span class="logo-pro">ProTrade</span>
+            <h2>Admin<span>Tool</span></h2>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="{{ url_for('admin2') }}" class="nav-item active">Dashboard Home</a>
+            <a href="{{ url_for('admin_users') }}"class="nav-item">User Audit</a>
+            <a href="{{ url_for('admin_market') }}" class="nav-item">Market Control</a>
+            <a href="{{ url_for('admin_stocks') }}" class="nav-item">Inventory Update</a>
+            <a href="{{ url_for('syslog') }}" class="nav-item">System Logs</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Version 2.0.4</p>
+        </div>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-topbar">
+            <div>
+                <h1>Platform Overview</h1>
+                <p>Manage stocks, users, trades, and system controls.</p>
+            </div>
+
+            <div class="admin-profile">
+                Admin: <strong>{{ session.get("username") }}</strong>
+                <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+            </div>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Volume</h3>
+                <p>$1200.00</p>
+                <span class="trend up">12% today</span>
+            </div>
+
+            <div class="stat-card">
+                <h3>Active Users</h3>
+                <p>12</p>
+                <span class="trend">Live Sessions</span>
+            </div>
+
+            <div class="stat-card">
+                <h3>Total Stocks</h3>
+                <p>8</p>
+                <span class="trend">Listed assets</span>
+            </div>
+        </section>
+
+        <section class="content-grid">
+            <div class="card health-widget">
+                <h3>System Health</h3>
+
+                <div class="health-item">
+                    <span>Database Latency</span>
+                    <div class="progress-bar">
+                        <div class="fill" style="width: 92%"></div>
+                    </div>
+                </div>
+
+                <div class="health-item">
+                    <span>Server Load</span>
+                    <div class="progress-bar">
+                        <div class="fill warn" style="width: 45%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card action-widget">
+                <h3>Quick Controls</h3>
+
+                <div class="action-buttons">
+                    <button>Emergency Halt</button>
+                    <button>Restock</button>
+                    <button>Add Stock</button>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+{% endblock %}

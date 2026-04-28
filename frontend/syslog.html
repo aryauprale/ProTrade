@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style04.css">
+    <script src="script01.js" defer></script>
+    <title>syslog</title>
+</head>
+<body>
+    
+
+    <div class="log-wrapper">
+        <a href="admin2.html" class="btn-back">Back to Dashboard</a>
+        <header class="log-header">
+            <h1>System Evnet Monitor</h1>
+            <div class="controls">
+                <button onclick="location.reload()" class="btn-refresh">Refresh Feed</button>
+                <button onclick="clearAllLogs()" class="btn-delete"> Wipe History</button>
+                
+            </div>
+        </header>
+        <div class="table-container">
+                <table id="System-log-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 60%">Timestamp</th>
+                            <th style="width: 65%">Severity</th>
+                            <th style="width: 65%">Event Descriptiion</th>
+                        </tr>
+                    </thead>
+                
+                  <tbody id="log-output">
+
+                   </tbody>
+               </table>
+            </div>
+    </div>
+            
+        </section>
+        
+</body>
+</html>

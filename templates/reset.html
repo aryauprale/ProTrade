@@ -2,26 +2,52 @@
 {% block title %}Reset Password{% endblock %}
 
 {% block page_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
 {% endblock %}
 
 {% block content %}
-<div class="reset-box">
-  <form method="POST" action="{{ url_for('reset') }}">
-    <h2>Reset Password</h2>
-    <p>Enter your phone number and we will send you a code to reset your password.</p>
-
-    <div class="input-box">
-      <input type="tel" name="phone" placeholder="e.g., 5551234567" required>
-      <label>Cell number</label>
+<section class="reset-page">
+  <div class="reset-card">
+    <div class="reset-header">
+      <p class="reset-eyebrow">Account recovery</p>
+      <h1>Reset your password</h1>
+      <p class="reset-subtext">
+        Enter your phone number and OTP code to continue the password reset process.
+      </p>
     </div>
 
-    <div class="input-box">
-      <input type="text" name="otp" inputmode="numeric" pattern="[0-9]{4,8}" placeholder="Enter OTP code" required>
-      <label>OTP Code</label>
-    </div>
+    <form method="POST" action="{{ url_for('reset') }}" class="reset-form">
+      <div class="input-group">
+        <label for="phone">Phone Number</label>
+        <div class="input-wrap">
+          <input
+            id="phone"
+            type="tel"
+            name="phone"
+            placeholder="e.g. 5551234567"
+            required
+            autocomplete="tel"
+          >
+        </div>
+      </div>
 
-    <button type="submit" class="next-btn">Next</button>
-  </form>
-</div>
+      <div class="input-group">
+        <label for="otp">OTP Code</label>
+        <div class="input-wrap">
+          <input
+            id="otp"
+            type="text"
+            name="otp"
+            inputmode="numeric"
+            pattern="[0-9]{4,8}"
+            placeholder="Enter OTP code"
+            required
+          >
+        </div>
+      </div>
+
+      <button type="submit" class="reset-submit">Next</button>
+    </form>
+  </div>
+</section>
 {% endblock %}

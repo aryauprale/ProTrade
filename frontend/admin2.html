@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="style04.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awsome/6.0.0/css.min.css">
+    <script src="script04.js" defer></script>
+    
+    <title>ADMIN</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-wraper">
+                    <span class="logo-pro">ProTrade</span>
+                <h2>Admin<span>Tool</span></h2>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="admin2.html" class="nav-item active">Dashboard Home</a>
+                    <a href="Useraudit.html" class="nav-item">User Audit</a>
+                    <a href="Marketcontrol.html" class="nav-item">Market Control"</a>
+                    <a href="InvUPdate.html" class="nav-item">Inventory Update</a>
+                    <a href="syslog.html" class="nav-item">System Logs</a>
+                    <a href="BUY.html" class="nav-item">Transaction</a>
+                </nav>
+               
+            </div>
+        </aside>
+    </div>
+            <main class="main-content">
+                <header class="top-bar">
+                    <h1>Platform Overview</h1>
+                   <div class="user-profile">Admin: <strong>Arya</strong></div>
+                   
+                    <button onclick="logout()">Logout</button>
+                </header>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Volume</h3>
+                        <p id="totalVolume">$1200.00</p>
+                        <span class="trend up">12% today</span>
+                    </div>
+                     
+                  <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Active Users</h3>
+                        <p id="activeUsers">12</p>
+                        <span class="trend">Live Sessions</span>
+                    </div>
+
+                
+                </div>
+                 
+
+                <div class="content-grid">
+                    <section class="card health-widget">
+                        <h3>System Health</h3>
+                        <div class="health-item">
+                            <span>Database latency</span>
+                            <div class="progress-bar"><div class="fill" style="width: 92%"></div></div>
+                        </div>
+                        <div class="health-item">
+                            <span>Sever Load</span>
+                            <div class="progress-bar"><div class="fill warn" style="width: 45%"></div></div>
+                        </div>
+                    </section>
+                    
+                 
+                    </div>
+                <section class="card action-widget">
+                        <h3>Quick Controls</h3>
+                        <div class="action-buttons">
+                            <button onclick="location.href='Marketcontrol.html'">Emergency halt</button>
+                            <button onclick="location.href='InvUPdate.html'">Restock</button>
+                        </div>
+                    </section>
+                <section>
+                 <div class="sidebar-footer">
+                    <p>Version 2.0.4</p>
+                   
+                </div>
+                </section>
+                </div>
+
+            </main>
+    </div>
+</body>
+</html>

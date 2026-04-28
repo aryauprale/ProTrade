@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}System Logs{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='syslog.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="log-wrapper">
+    <a href="{{ url_for('admin2') }}" class="btn-back">Back to Dashboard</a>
+
+    <header class="log-header">
+        <div>
+            <h1>System Event Monitor</h1>
+            <p>Review system alerts, admin actions, and trading events.</p>
+        </div>
+
+        <div class="controls">
+            <button onclick="location.reload()" class="btn-refresh">Refresh Feed</button>
+            <button onclick="clearAllLogs()" class="btn-delete">Wipe History</button>
+        </div>
+    </header>
+
+    <div class="log-summary">
+        <div class="log-card">
+            <span>Total Events</span>
+            <strong>3</strong>
+        </div>
+
+        <div class="log-card warning">
+            <span>Warnings</span>
+            <strong>1</strong>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table id="system-log-table">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Severity</th>
+                    <th>Event Description</th>
+                </tr>
+            </thead>
+
+            <tbody id="log-output">
+                <tr>
+                    <td>2026-04-24 20:45</td>
+                    <td><span class="badge success">SUCCESS</span></td>
+                    <td>Admin logged into ProTrade dashboard.</td>
+                </tr>
+                <tr>
+                    <td>2026-04-24 20:50</td>
+                    <td><span class="badge warning">WARNING</span></td>
+                    <td>Market control page accessed.</td>
+                </tr>
+                <tr>
+                    <td>2026-04-24 20:55</td>
+                    <td><span class="badge info">INFO</span></td>
+                    <td>Stock inventory page viewed.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+function clearAllLogs() {
+    document.getElementById("log-output").innerHTML = "";
+}
+</script>
+{% endblock %}

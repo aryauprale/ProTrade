@@ -1,0 +1,123 @@
+body {
+    background-color: #f3f4f6;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.transactions-page {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.transactions-header {
+    margin-bottom: 25px;
+}
+
+.transactions-header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.transactions-header p {
+    color: #6b7280;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.transactions-table-container {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    overflow-x: auto;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.transactions-table thead {
+    background-color: #f9fafb;
+}
+
+.transactions-table th,
+.transactions-table td {
+    padding: 16px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.transactions-table th {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.transactions-table td {
+    font-size: 1rem;
+    color: #111827;
+}
+
+.ticker {
+    font-weight: 700;
+    color: #16a34a;
+}
+
+.total {
+    font-weight: 700;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.badge.buy {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.badge.sell {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.empty-transactions {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-transactions h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+.empty-transactions p {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+.browse-btn {
+    display: inline-block;
+    background-color: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.browse-btn:hover {
+    background-color: #1d4ed8;
+}

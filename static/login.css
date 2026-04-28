@@ -61,6 +61,21 @@
     margin-bottom: 0.45rem;
 }
 
+.input-wrap select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  padding: 12px;
+  appearance: none;
+}
+
+.input-wrap select option {
+  color: black;
+}
+
 .input-wrap {
     display: flex;
     align-items: center;

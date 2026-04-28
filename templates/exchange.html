@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="max-w-6xl mx-auto mt-10">
+
+    <h1 class="text-3xl font-bold mb-6">Market Exchange</h1>
+     <div class="mb-4">
+       <input id="stockSearch" type="text" placeholder="Search ticker or company..."
+         class="w-full border rounded-lg px-4 py-2">
+     </div>
+
+    <div class="bg-white shadow rounded-lg overflow-hidden">
+
+        <table class="w-full text-left">
+
+            <thead class="bg-gray-100">
+                <tr>
+                    <th class="p-4">Ticker</th>
+                    <th class="p-4">Company</th>
+                    <th class="p-4">Price</th>
+                    <th class="p-4">Open</th>
+                    <th class="p-4">High</th>
+                    <th class="p-4">Low</th>
+                    <th class="p-4">Volume</th>
+                    <th class="p-4">Trade</th>
+                    <td class="p-4"> 
+                </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for stock in stocks %}
+              <tr class="border-t hover:bg-gray-50">
+
+              <td class="p-4 font-semibold text-green-600">
+                {{ stock.ticker }}
+              </td>
+
+<td class="p-4">
+{{ stock.company_name }}
+</td>
+
+<td class="p-4">
+${{ "%.2f"|format(stock.current_price) }}
+</td>
+
+<td class="p-4">
+${{ "%.2f"|format(stock.opening_price) }}
+</td>
+
+<td class="p-4 text-green-600">
+${{ "%.2f"|format(stock.day_high) }}
+</td>
+
+<td class="p-4 text-red-500">
+${{ "%.2f"|format(stock.day_low) }}
+</td>
+
+<td class="p-4">
+{{ "{:,}".format(stock.total_volume) }}
+</td>
+
+<td class="p-4">
+<a href="{{ url_for('order', ticker=stock.ticker) }}" 
+   class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+Buy
+</a>
+</td>
+</tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+        <script>
+        const search = document.getElementById("stockSearch");
+
+     search.addEventListener("keyup", function() {
+        const filter = search.value.toLowerCase();
+        const rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(filter) ? "" : "none";
+    });
+});
+</script>
+    </div>
+
+</div>
+
+{% endblock %}

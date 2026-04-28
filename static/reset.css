@@ -1,0 +1,125 @@
+.reset-page {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background:
+        linear-gradient(rgba(15, 23, 42, 0.58), rgba(15, 23, 42, 0.58)),
+        url("/static/imag6.png") center/cover no-repeat;
+    border-radius: 22px;
+}
+
+.reset-card {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(15, 23, 42, 0.88);
+    color: #ffffff;
+    border-radius: 24px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(6px);
+}
+
+.reset-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+
+.reset-eyebrow {
+    color: #86efac;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.45rem;
+}
+
+.reset-header h1 {
+    font-size: 2rem;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 0.65rem;
+    color: #ffffff;
+}
+
+.reset-subtext {
+    color: #cbd5e1;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+
+.reset-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.input-wrap {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 0.95rem 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-wrap:focus-within {
+    border-color: #86efac;
+    box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.14);
+}
+
+.input-wrap input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.input-wrap input::placeholder {
+    color: #94a3b8;
+}
+
+.reset-submit {
+    width: 100%;
+    margin-top: 0.4rem;
+    border: none;
+    border-radius: 14px;
+    padding: 0.95rem 1rem;
+    background: #7cc55b;
+    color: #0f172a;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.reset-submit:hover {
+    transform: translateY(-1px);
+    opacity: 0.96;
+}
+
+@media (max-width: 640px) {
+    .reset-card {
+        padding: 1.5rem;
+        border-radius: 18px;
+    }
+
+    .reset-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .reset-page {
+        padding: 1rem 0;
+    }
+}
