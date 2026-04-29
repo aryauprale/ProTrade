@@ -28,6 +28,58 @@ def init_db():
 
     conn.executescript(schema)
 
+    stocks = [
+    # Tech Giants
+        ("Apple Inc.", "AAPL", 78000000, 192, 189, 194, 187),
+        ("Microsoft Corp.", "MSFT", 65000000, 420, 415, 425, 410),
+        ("Alphabet Inc.", "GOOGL", 52000000, 175, 172, 178, 170),
+        ("Amazon.com Inc.", "AMZN", 60000000, 185, 180, 188, 178),
+        ("Meta Platforms Inc.", "META", 48000000, 510, 500, 520, 495),
+
+    # AI / Chips
+        ("Nvidia Corp.", "NVDA", 25000000, 925, 910, 940, 905),
+        ("AMD Inc.", "AMD", 31000000, 180, 175, 185, 172),
+        ("Intel Corp.", "INTC", 45000000, 42, 40, 43, 39),
+        ("Qualcomm Inc.", "QCOM", 22000000, 205, 200, 210, 198),
+
+    # EV / Auto
+        ("Tesla Inc.", "TSLA", 32000000, 170, 172, 175, 165),
+        ("Ford Motor Co.", "F", 40000000, 14, 13.5, 14.5, 13.2),
+        ("General Motors", "GM", 28000000, 46, 45, 47, 44),
+
+    # Finance
+        ("JPMorgan Chase", "JPM", 21000000, 200, 198, 203, 195),
+        ("Bank of America", "BAC", 35000000, 38, 37, 39, 36),
+        ("Goldman Sachs", "GS", 15000000, 410, 405, 415, 400),
+
+    # Retail / Consumer
+        ("Walmart Inc.", "WMT", 30000000, 165, 162, 168, 160),
+        ("Target Corp.", "TGT", 18000000, 140, 138, 142, 135),
+        ("Nike Inc.", "NKE", 20000000, 95, 93, 97, 91),
+
+    # Entertainment / Media
+        ("Netflix Inc.", "NFLX", 12000000, 620, 610, 630, 605),
+        ("Disney", "DIS", 26000000, 110, 108, 112, 105),
+
+    # Energy
+        ("Exxon Mobil", "XOM", 29000000, 120, 118, 122, 117),
+        ("Chevron Corp.", "CVX", 21000000, 160, 158, 162, 155),
+
+    # Random variety
+        ("Uber Technologies", "UBER", 27000000, 75, 73, 77, 72),
+        ("Airbnb Inc.", "ABNB", 15000000, 150, 148, 152, 145),
+        ("Coca-Cola Co.", "KO", 34000000, 60, 59, 61, 58),
+        ("PepsiCo Inc.", "PEP", 22000000, 175, 173, 178, 170),
+        ("McDonald's Corp.", "MCD", 18000000, 290, 285, 295, 280)
+   ]
+
+    
+    conn.executemany("""
+    INSERT OR IGNORE INTO stocks
+    (company_name, ticker, total_volume, current_price, opening_price, day_high, day_low)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+""", stocks)
+    
     conn.execute("""
         INSERT OR IGNORE INTO market_settings (id, open_time, close_time)
         VALUES (1, '09:00', '16:00')
@@ -79,6 +131,11 @@ def register():
 @app.route("/test")
 def test():
     return "Test route works"
+
+@app.route("/reset-db")
+def reset_db():
+    init_db()
+    return "DB reset!"
 
 
 @app.route("/admin/stocks")
