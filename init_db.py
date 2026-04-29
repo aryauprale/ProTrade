@@ -1,5 +1,9 @@
 import sqlite3
 from werkzeug.security import generate_password_hash
+import os
+print("current folder:", os.getcwd())
+print("schema path:", os.path.abspath("sql/schema.sql"))
+print("db path:", os.path.abspath("database.db"))
 
 print("starting db init...")
 
@@ -44,6 +48,20 @@ try:
     ))
     print("admin user created")
 
+    stocks = [
+    ("Apple Inc.", "AAPL", 78000000, 192, 189, 194, 187),
+    ("Tesla Inc.", "TSLA", 32000000, 170, 172, 175, 165),
+    ("Nvidia Corp.", "NVDA", 25000000, 925, 910, 940, 905)
+    ]
+    
+    
+    
+    conn.executemany("""
+        INSERT OR IGNORE INTO stocks
+        (company_name, ticker, total_volume, current_price, opening_price, day_high, day_low)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, stocks)
+    
     conn.commit()
     print("database and tables created successfully")
 
