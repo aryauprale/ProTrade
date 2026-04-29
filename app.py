@@ -63,6 +63,7 @@ def home():
     return render_template("index.html")
 
 
+@app.route("/about")
 @app.route("/aboutus")
 def about():
     return render_template("aboutus.html")
