@@ -94,6 +94,33 @@ def admin_stocks():
 
     return render_template("admin_stocks.html", stocks=stocks)
 
+@app.route("/admin/seed-stocks")
+def seed_stocks():
+    if session.get("role") != "admin":
+        return redirect(url_for("login"))
+
+    conn = get_db()
+
+    stocks = [
+        ("Apple Inc.", "AAPL", 78000000, 192, 189, 194, 187),
+        ("Tesla Inc.", "TSLA", 32000000, 170, 172, 175, 165),
+        ("Nvidia Corp.", "NVDA", 25000000, 925, 910, 940, 905),
+        ("Microsoft Corp.", "MSFT", 42000000, 415, 410, 420, 408),
+        ("Amazon.com Inc.", "AMZN", 51000000, 182, 179, 185, 178)
+    ]
+
+    conn.executemany("""
+        INSERT OR IGNORE INTO stocks
+        (company_name, ticker, total_volume, current_price, opening_price, day_high, day_low)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    """, stocks)
+
+    conn.commit()
+    conn.close()
+
+    flash("Stocks seeded successfully.", "success")
+    return redirect(url_for("exchange"))
+
 def is_market_open():
     today = datetime.now().date()
     weekday = today.weekday()  # Monday = 0, Sunday = 6
