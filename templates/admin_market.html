@@ -27,15 +27,19 @@
 
         <div class="market-card">
             <h3>Market Hours</h3>
-            <form>
+
+            <form method="POST" action="{{ url_for('update_market_hours') }}">
                 <label>Open Time</label>
-                <input type="time" value="09:00">
+                <input type="time" name="open_time" value="{{ settings.open_time if settings else '09:00' }}" required>
 
                 <label>Close Time</label>
-                <input type="time" value="16:00">
+                <input type="time" name="close_time" value="{{ settings.close_time if settings else '16:00' }}" required>
 
-                <button type="submit">Update Hours</button>
+               <button type="submit">Update Hours</button>
             </form>
+
+      
+
         </div>
         <div class="market-card">
             <h3>Random Price Generator</h3>
@@ -85,6 +89,7 @@
               <button type="submit">Add Holiday</button>
            </form>
 
+         
           <div class="holiday-list">
               {% for holiday in holidays %}
              <div class="holiday-row">

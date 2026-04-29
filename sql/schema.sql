@@ -56,6 +56,11 @@ CREATE TABLE IF NOT EXISTS market_schedule (
   UNIQUE (day_of_the_week)
 );
 
+CREATE TABLE IF NOT EXISTS market_settings (
+    id INTEGER PRIMARY KEY,
+    open_time TEXT,
+    close_time TEXT
+);
 
 CREATE TABLE IF NOT EXISTS market_holidays (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

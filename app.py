@@ -4,9 +4,11 @@ import sqlite3
 import re
 import random
 from datetime import datetime
+import os
+
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  
+app.secret_key = os.environ.get("SECRET_KEY", "fallback-secret")
 
 
 def get_db():
@@ -17,24 +19,37 @@ def get_db():
 
 def init_db():
     conn = get_db()
+
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+    with open(os.path.join(BASE_DIR, "sql/schema.sql"), "r") as f:
+        schema = f.read()
+
+    conn.executescript(schema)
+
     conn.execute("""
-    CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      first_name TEXT NOT NULL,
-      last_name TEXT NOT NULL,
-      username TEXT NOT NULL UNIQUE,
-      email TEXT NOT NULL UNIQUE,
-      phone TEXT NOT NULL,
-      password_hash TEXT NOT NULL,
-      role TEXT NOT NULL DEFAULT 'user',
-      cash_balance REAL NOT NULL DEFAULT 10000,
-      created_at TEXT DEFAULT CURRENT_TIMESTAMP
-    );
+        INSERT OR IGNORE INTO market_settings (id, open_time, close_time)
+        VALUES (1, '09:00', '16:00')
     """)
+
+    conn.execute("""
+        INSERT OR IGNORE INTO users 
+        (first_name, last_name, username, email, phone, password_hash, role, cash_balance)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+        "Admin",
+        "User",
+        "admin",
+        "admin@protrade.com",
+        "0000000000",
+        generate_password_hash("admin123"),
+        "admin",
+        100000
+    ))
+
     conn.commit()
     conn.close()
-
-
+    
 init_db()
 
 
@@ -244,21 +259,51 @@ def sell_stock(ticker):
         conn.close()
 
     return redirect(url_for("portfolio"))
-
 @app.route("/admin/market")
 def admin_market():
     if session.get("role") != "admin":
         flash("Admins only.", "error")
         return redirect(url_for("login"))
-    
+
     conn = get_db()
+
     holidays = conn.execute(
         "SELECT * FROM market_holidays ORDER BY holiday_date"
     ).fetchall()
+
+    settings = conn.execute(
+        "SELECT * FROM market_settings WHERE id = 1"
+    ).fetchone()
+
     conn.close()
 
-    
-    return render_template("admin_market.html", holidays=holidays)
+    return render_template(
+        "admin_market.html",
+        holidays=holidays,
+        settings=settings
+    )
+
+@app.route("/admin/market/hours", methods=["POST"])
+def update_market_hours():
+    if session.get("role") != "admin":
+        flash("Admins only.", "error")
+        return redirect(url_for("login"))
+
+    open_time = request.form.get("open_time")
+    close_time = request.form.get("close_time")
+
+    conn = get_db()
+    conn.execute("""
+        UPDATE market_settings
+        SET open_time = ?, close_time = ?
+        WHERE id = 1
+    """, (open_time, close_time))
+
+    conn.commit()
+    conn.close()
+
+    flash("Market hours updated.", "success")
+    return redirect(url_for("admin_market"))
 
 @app.route("/cash", methods=["POST"])
 def cash_transaction():
@@ -810,4 +855,4 @@ def execute_order(order_id):
     return redirect(url_for("orders"))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=True)
