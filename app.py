@@ -54,8 +54,7 @@ def init_db():
 
 
 
-
-    init_db()
+init_db()
 
 def normalize_phone(phone: str) -> str:
     return re.sub(r"\D", "", phone or "")
@@ -125,7 +124,7 @@ def seed_stocks():
     except Exception as e:
         return f"Seed error: {e}"
     
-    
+
 def is_market_open():
     today = datetime.now().date()
     weekday = today.weekday()  # Monday = 0, Sunday = 6
