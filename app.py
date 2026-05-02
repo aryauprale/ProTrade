@@ -5,6 +5,7 @@ import re
 import random
 from datetime import datetime
 import os
+from zoneinfo import ZoneInfo
 
 
 app = Flask(__name__)
@@ -183,25 +184,39 @@ def seed_stocks():
     
 
 def is_market_open():
-    today = datetime.now().date()
-    weekday = today.weekday()  # Monday = 0, Sunday = 6
+    now = datetime.now(ZoneInfo("America/Chicago"))
+    today = now.date()
+    weekday = today.weekday()
 
-    # Block weekends
+    # block weekends
     if weekday >= 5:
         return False
 
     conn = get_db()
+
     holiday = conn.execute(
         "SELECT * FROM market_holidays WHERE holiday_date = ?",
         (str(today),)
     ).fetchone()
-    conn.close()
 
-    # Block holidays
     if holiday:
+        conn.close()
         return False
 
-    return True
+    settings = conn.execute(
+        "SELECT open_time, close_time FROM market_settings WHERE id = 1"
+    ).fetchone()
+
+    conn.close()
+
+    if not settings:
+        return True
+
+    open_time = datetime.strptime(settings["open_time"], "%H:%M").time()
+    close_time = datetime.strptime(settings["close_time"], "%H:%M").time()
+    current_time = now.time()
+
+    return open_time <= current_time <= close_time
 
 @app.route("/admin/prices/update", methods=["POST"])
 def update_stock_prices():
